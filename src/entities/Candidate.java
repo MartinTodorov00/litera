@@ -1,15 +1,17 @@
-package entities.Candidates;
+package entities;
+
+import entities.enums.Sources;
 
 public class Candidate {
 
     private String name;
     private String surName;
-    private String city;
+    private City city;
     private String email;
     private String phone;
-    private String source;
+    private Sources source;
 
-    public Candidate(String name, String surName, String city, String email, String phone, String source) {
+    public Candidate(String name, String surName, City city, String email, String phone, Sources source) {
         this.name = name;
         this.surName = surName;
         this.city = city;
@@ -34,11 +36,11 @@ public class Candidate {
         this.surName = surName;
     }
 
-    public String getCity() {
+    public City getCity() {
         return city;
     }
 
-    public void setCity(String city) {
+    public void setCity(City city) {
         this.city = city;
     }
 
@@ -58,11 +60,11 @@ public class Candidate {
         this.phone = phone;
     }
 
-    public String getSource() {
+    public Sources getSource() {
         return source;
     }
 
-    public void setSource(String source) {
+    public void setSource(Sources source) {
         this.source = source;
     }
 }

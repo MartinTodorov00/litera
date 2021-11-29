@@ -1,3 +1,5 @@
+package domain_model;
+
 import java.time.LocalDateTime;
 
 public class DomainModel {
