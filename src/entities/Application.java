@@ -14,11 +14,11 @@ public class Application {
     private String interviewResult;
     private Candidate candidate;
 
-    public Application(PreSelectionStatuses preSelectionStatus, SelectionResults selectionResult, String technology,
+    public Application(PreSelectionStatuses preSelectionStatus, SelectionResults selectionResult, Technology technology,
                        LocalDateTime interviewDateAndTime, String interviewResult, Candidate candidate) {
         this.preSelectionStatus = preSelectionStatus;
         this.selectionResult = selectionResult;
-        this.technology = new Technology(technology);
+        this.technology = technology;
         this.interviewDateAndTime = interviewDateAndTime;
         this.interviewResult = interviewResult;
         this.candidate = candidate;

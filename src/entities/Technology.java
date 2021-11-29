@@ -2,17 +2,17 @@ package entities;
 
 public class Technology {
 
-    private String technology;
+    private String name;
 
-    public Technology(String technology) {
-        this.technology = technology;
+    public Technology(String name) {
+        this.name = name;
     }
 
-    public String getTechnology() {
-        return technology;
+    public String getName() {
+        return name;
     }
 
-    public void setTechnology(String technology) {
-        this.technology = technology;
+    public void setName(String name) {
+        this.name = name;
     }
 }

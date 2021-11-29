@@ -2,5 +2,5 @@ package entities.enums;
 
 public enum Sources {
 
-    INMAIL,FACEBOOK,REFERRAl
+    INMAIL,FACEBOOK,REFERRAL
 }

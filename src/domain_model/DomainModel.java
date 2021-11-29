@@ -16,9 +16,9 @@ public class DomainModel {
     private String interviewResult;
     private String selectionResult;
 
-    public DomainModel(String name, String surName, String city, String email, String phone, String source
-            , String technology, String preSelectionStatus, LocalDateTime interviewDateAndTime, String interviewResult
-            , String selectionResult) {
+    public DomainModel(String name, String surName, String city, String email, String phone, String source,
+                       String technology, String preSelectionStatus, LocalDateTime interviewDateAndTime,
+                       String interviewResult, String selectionResult) {
         this.name = name;
         this.surName = surName;
         this.city = city;
