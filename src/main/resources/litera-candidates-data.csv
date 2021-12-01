@@ -1,0 +1,264 @@
+Name,Surname,City,Email,Phone,Source,Replied,Technology,Moodle Ready,Pre-selection Status,Interview Date,Interview Result,Selection Result
+Erda,Roache,Nis,erda.roache@example.com,850 985 2136,InMail,YES,Java,YES,LOW SCORE,,,
+Sheba,Durnan,Nis,sheba.durnan@example.com,625 930 9746,InMail,YES,Java,YES,LOW SCORE,,,
+Judon,Thorneley,Plovdiv,judon.thorneley@example.com,848 137 6306,InMail,YES,QA,YES,TO BE INVITED,,REFUSED,REFUSED
+Sondra,Osselton,Nis,sondra.osselton@example.com,248 421 3276,InMail,YES,Java,YES,LOW SCORE,,,
+Dorelle,Fintoph,Nis,dorelle.fintoph@example.com,357 588 9680,InMail,YES,FrontEnd,YES,OVERDUE,,,
+Debora,Martynikhin,Sofia,debora.martynikhin@example.com,105 394 5738,InMail,YES,QA,YES,LOW SCORE,,,
+Frannie,Stoll,Plovdiv,frannie.stoll@example.com,355 450 4742,InMail,YES,Java,YES,TO BE INVITED,"19/02/, 15:00h",PASSED,ACCEPTED
+Amalie,Avramow,Plovdiv,amalie.avramow@example.com,269 551 7586,InMail,YES,FrontEnd,YES,OVERDUE,,,
+Chrissie,Banishevitz,,chrissie.banishevitz@example.com,796 358 3985,InMail,YES,FrontEnd,YES,OVERDUE,,,
+Moise,Ambrosini,Sofia,moise.ambrosini@example.com,891 386 8016,InMail,YES,FrontEnd,YES,OVERDUE,,,
+Fonz,Frayling,Sofia,fonz.frayling@example.com,387 307 6905,Facebook,YES,Java,YES,OVERDUE,,,
+Veriee,Stobbes,Sofia,veriee.stobbes@example.com,145 900 6455,InMail,YES,FrontEnd,YES,OVERDUE,,,
+Alie,Askey,Sofia,alie.askey@example.com,553 556 8702,InMail,YES,Java,YES,OVERDUE,,,
+Hew,Khomich,Nis,hew.khomich@example.com,895 235 8859,InMail,YES,Java,YES,LOW SCORE,,,
+Sarette,Tipling,Plovdiv,sarette.tipling@example.com,347 308 6386,InMail,YES,Dotnet,YES,LOW SCORE,,,
+Randall,Maharry,Plovdiv,randall.maharry@example.com,872 385 6151,InMail,YES,Dotnet,YES,TO BE INVITED,"19/02/ , 14:00h",PASSED,ACCEPTED
+Glynda,Churms,Plovdiv,glynda.churms@example.com,997 574 8829,InMail,YES,QA,YES,OVERDUE,,,
+Ondrea,McKelvey,Sofia,ondrea.mckelvey@example.com,438 443 0429,InMail,YES,Dotnet,YES,OVERDUE,,,
+Che,Duling,Sofia,che.duling@example.com,935 666 7894,InMail,YES,Java,YES,LOW SCORE,,,
+Cindi,Mattis,Nis,cindi.mattis@example.com,966 629 6278,InMail,YES,FrontEnd,YES,OVERDUE,,,
+Cass,Jeschner,Sofia,cass.jeschner@example.com,738 465 9987,InMail,YES,Java,YES,TO BE INVITED,21/02/ 15:00h,PASSED,ACCEPTED
+Leoline,Cicetti,Sofia,leoline.cicetti@example.com,801 789 2032,InMail,YES,FrontEnd,YES,LOW SCORE,,,
+Allis,Creeboe,,allis.creeboe@example.com,410 392 1544,InMail,,,,,,,
+Kirsteni,Grigorio,Varna,kirsteni.grigorio@example.com,326 891 2827,InMail,YES,Java,YES,OVERDUE,,,
+Noam,le Keux,Plovdiv,noam.lekeux@example.com,827 410 6503,InMail,YES,QA,YES,TO BE INVITED,20-02-20,PASSED,ACCEPTED
+Freeland,Jancic,Nis,freeland.jancic@example.com,382 202 8805,InMail,YES,Dotnet,YES,LOW SCORE,,,
+Bat,Scarborough,Sofia,bat.scarborough@example.com,651 702 7606,InMail,NO,,,,,,REFUSED
+Hilario,Pierro,Plovdiv,hilario.pierro@example.com,458 688 2977,InMail,YES,Dotnet,YES,OVERDUE,,,
+Elna,Moquin,Plovdiv,elna.moquin@example.com,993 842 4759,InMail,YES,Java,YES,LOW SCORE,,,
+Julio,Tiller,Sofia,julio.tiller@example.com,695 964 9846,InMail,YES,FrontEnd,YES,OVERDUE,,,
+Nellie,Slym,Plovdiv,nellie.slym@example.com,364 766 3450,InMail,YES,Dotnet,YES,LOW SCORE,,,
+Cissy,Peers,Nis,cissy.peers@example.com,852 485 9524,InMail,,,,,,,
+Kalil,Golston,Sofia,kalil.golston@example.com,585 619 8592,InMail,YES,QA,YES,TO BE INVITED,24-02-20,FAILED,REJECTED
+Edyth,Anstead,Sofia,edyth.anstead@example.com,918 781 4693,Referral,YES,QA,YES,TO BE INVITED,21-02-20,PASSED,ACCEPTED
+Junette,Abrahart,Plovdiv,junette.abrahart@example.com,107 628 0658,InMail,YES,Java,YES,OVERDUE,,,
+Arlyne,Browett,Plovdiv,arlyne.browett@example.com,333 100 4680,InMail,YES,Dotnet,YES,LOW SCORE,,,
+Martie,Coger,Sofia,martie.coger@example.com,632 698 6711,InMail,YES,QA,YES,TO BE INVITED,,,REFUSED
+Daryl,Phethean,Sofia,daryl.phethean@example.com,745 905 1550,InMail,YES,FrontEnd,YES,OVERDUE,,,
+Matthias,Shimon,Plovdiv,matthias.shimon@example.com,477 247 1455,InMail,YES,Java,YES,OVERDUE,,,
+Kalina,De Filippi,Sofia,kalina.defilippi@example.com,543 938 1676,InMail,NO,,,,,,REFUSED
+Zorina,Brunetti,Plovdiv,zorina.brunetti@example.com,855 938 8500,InMail,YES,FrontEnd,YES,OVERDUE,,,
+Stillmann,Wynn,Sofia,stillmann.wynn@example.com,499 248 1115,InMail,YES,FrontEnd,YES,OVERDUE,,,
+Waverley,Rosenschein,Svishtov,waverley.rosenschein@example.com,479 335 2517,InMail,YES,Dotnet,YES,LOW SCORE,,,
+Zenia,Leverton,Sofia,zenia.leverton@example.com,425 906 5631,InMail,,,,,,,
+Orlando,Lodemann,Nis,orlando.lodemann@example.com,439 847 2113,InMail,YES,QA,YES,TO BE INVITED,25-02-20,FAILED,REJECTED
+Wernher,Gollin,Sofia,wernher.gollin@example.com,875 485 5027,InMail,YES,QA,YES,TO BE INVITED,24-02-20,FAILED,REJECTED
+Natalina,Oliver,Nis,natalina.oliver@example.com,153 870 7440,InMail,,,,,,,
+Hedwiga,Percy,Nis,hedwiga.percy@example.com,606 496 3313,InMail,YES,QA,YES,LOW SCORE,,,
+Paddie,Tenby,Plovdiv,paddie.tenby@example.com,574 862 0671,InMail,YES,Dotnet,YES,TO BE INVITED,20/02/ 14:00h,PASSED,ACCEPTED
+Tiebold,Ivushkin,Sofia,tiebold.ivushkin@example.com,588 880 6648,InMail,YES,Java,YES,OVERDUE,,,
+Pauly,Aleksic,Plovdiv,pauly.aleksic@example.com,236 497 1381,InMail,YES,QA,YES,TO BE INVITED,20-02-20,FAILED,REJECTED
+Chan,Shrigley,Plovdiv,chan.shrigley@example.com,490 694 4152,InMail,YES,Java,YES,OVERDUE,,,
+Ferrel,Dolle,Sofia,ferrel.dolle@example.com,638 980 0508,InMail,YES,QA,YES,TO BE INVITED,24-02-20,FAILED,REJECTED
+Mona,Milliere,Sofia,mona.milliere@example.com,542 836 7499,InMail,YES,QA,YES,LOW SCORE,,,
+Birgit,Baume,Sofia,birgit.baume@example.com,105 463 8715,InMail,YES,Dotnet,YES,OVERDUE,,,
+Sidonia,Piscotti,Sofia,sidonia.piscotti@example.com,991 110 4713,InMail,YES,FrontEnd,YES,TO BE INVITED,02-03-20,FAILED,REJECTED
+Yasmin,Landor,Sofia,yasmin.landor@example.com,800 880 9077,InMail,YES,FrontEnd,YES,OVERDUE,,,
+Donni,Sansum,Sofia,donni.sansum@example.com,493 819 7757,InMail,YES,Dotnet,YES,OVERDUE,,,
+Colby,Chinery,Sofia,colby.chinery@example.com,163 976 4119,InMail,YES,QA,YES,TO BE INVITED,21-02-20,FAILED,REJECTED
+Fredericka,Bloxsome,Nis,fredericka.bloxsome@example.com,747 724 8848,InMail,YES,FrontEnd,YES,OVERDUE,,,
+Chance,Bartkiewicz,Sofia,chance.bartkiewicz@example.com,847 994 3887,InMail,YES,QA,YES,OVERDUE,,,
+Jakie,Bullan,Nis,jakie.bullan@example.com,536 351 2567,InMail,YES,Dotnet,YES,LOW SCORE,,,
+Nichole,Cooksey,Veliko Tarnovo,nichole.cooksey@example.com,638 123 7191,InMail,,,,,,,
+Wren,Ladley,Nis,wren.ladley@example.com,597 637 5773,InMail,,,,,,,
+Katharine,Reimer,Nis,katharine.reimer@example.com,761 469 4101,InMail,YES,QA,YES,LOW SCORE,,,
+Clementine,Anstice,Varna,clementine.anstice@example.com,396 495 9475,InMail,YES,FrontEnd,YES,TO BE INVITED,25-02-20,PASSED,ACCEPTED
+Rafaelia,Tschirasche,Sofia,rafaelia.tschirasche@example.com,199 493 2939,InMail,YES,QA,YES,TO BE INVITED,21-02-20,FAILED,REJECTED
+Shay,Pischel,Sofia,shay.pischel@example.com,345 715 4563,InMail,YES,Dotnet,YES,OVERDUE,,,
+Cyril,Shawyers,Sofia,cyril.shawyers@example.com,369 132 0975,InMail,YES,Java,YES,LOW SCORE,,,
+Adams,Simioni,Plovdiv,adams.simioni@example.com,439 836 0832,InMail,YES,Dotnet,YES,LOW SCORE,,,
+Packston,Couser,Varna,packston.couser@example.com,968 557 7806,InMail,YES,Java,YES,OVERDUE,,,
+Benjie,Orbine,Sofia,benjie.orbine@example.com,955 430 6445,InMail,,,,,,,
+Zorine,Ortiger,Sofia,zorine.ortiger@example.com,735 262 0078,InMail,YES,Dotnet,YES,TO BE INVITED,19/02/ 16:00 h,FAILED,REJECTED
+Kermy,Rainforth,Sofia,kermy.rainforth@example.com,576 998 7530,InMail,YES,FrontEnd,YES,TO BE INVITED,25-02-20,FAILED,REJECTED
+Lorilee,Boggas,Sofia,lorilee.boggas@example.com,756 605 7487,Facebook,YES,QA,YES,TO BE INVITED,24-02-20,FAILED,REJECTED
+Nancey,Marqyes,Varna,nancey.marqyes@example.com,360 972 1085,InMail,YES,Java,YES,LOW SCORE,,,
+Petronella,Wallbanks,Veliko Tarnovo,petronella.wallbanks@example.com,130 995 2799,InMail,YES,Dotnet,YES,LOW SCORE,,,
+Forster,Kynforth,Plovdiv,forster.kynforth@example.com,332 991 0182,InMail,YES,Java,YES,TO BE INVITED,19/02/ 17:00 h,PASSED,ACCEPTED
+Fay,Brimham,Plovdiv,fay.brimham@example.com,736 859 0411,InMail,YES,Java,YES,OVERDUE,,,
+Christie,Milliere,Nis,christie.milliere@example.com,332 284 0399,InMail,YES,Dotnet,YES,OVERDUE,,,
+Fanchon,Goghin,Varna,fanchon.goghin@example.com,825 738 5187,InMail,YES,FrontEnd,YES,OVERDUE,,,
+Carolan,Tarburn,Sofia,carolan.tarburn@example.com,589 298 8598,InMail,YES,Java,YES,OVERDUE,,,
+Kath,Rumming,Sofia,kath.rumming@example.com,466 632 7941,InMail,YES,Dotnet,YES,LOW SCORE,,,
+Nicol,Dudleston,Sofia,nicol.dudleston@example.com,921 310 4409,InMail,YES,QA,YES,TO BE INVITED,21-02-20,FAILED,REJECTED
+Rodge,Bernasek,Sofia,rodge.bernasek@example.com,791 515 2703,InMail,YES,Java,YES,OVERDUE,,,
+Amanda,Botwood,Sofia,amanda.botwood@example.com,749 999 0071,Facebook,YES,Java,YES,OVERDUE,,,
+Minerva,Verriour,Nis,minerva.verriour@example.com,496 172 9335,InMail,YES,QA,YES,LOW SCORE,,,
+Michal,Adao,Plovdiv,michal.adao@example.com,769 416 2712,InMail,YES,Java,YES,LOW SCORE,,,
+Franciskus,Gagie,Sofia,franciskus.gagie@example.com,112 602 0164,InMail,YES,QA,YES,TO BE INVITED,25-02-20,FAILED,REJECTED
+Malcolm,Lenahan,Nis,malcolm.lenahan@example.com,419 211 0379,Facebook,YES,Dotnet,YES,TO BE INVITED,25-02-20,PASSED,ACCEPTED
+Lorilyn,Lambertini,Veliko Tarnovo,lorilyn.lambertini@example.com,908 162 0221,InMail,YES,Java,YES,TO BE INVITED,27-02-20,FAILED,REJECTED
+Conn,Blockey,Plovdiv,conn.blockey@example.com,753 374 2700,InMail,YES,FrontEnd,YES,OVERDUE,,,
+Sandy,Hyland,Sofia,sandy.hyland@example.com,121 829 0492,InMail,YES,Java,YES,LOW SCORE,,,
+Boote,Arzu,Plovdiv,boote.arzu@example.com,572 124 0101,InMail,YES,FrontEnd,YES,TO BE INVITED,26-02-20,FAILED,REJECTED
+Nannette,Royse,Nis,nannette.royse@example.com,258 828 2009,InMail,YES,Dotnet,YES,LOW SCORE,,,
+Corette,Stockoe,Nis,corette.stockoe@example.com,143 656 7530,InMail,YES,QA,YES,LOW SCORE,,,
+Annmarie,Wiskar,Sofia,annmarie.wiskar@example.com,238 195 3655,InMail,YES,QA,YES,OVERDUE,,,
+Mirabel,Featherby,Veliko Tarnovo,mirabel.featherby@example.com,968 412 6546,InMail,YES,Dotnet,YES,TO BE INVITED,26-02-20,PASSED,ACCEPTED
+Ignaz,Joontjes,Blagoevgrad,ignaz.joontjes@example.com,967 220 5508,InMail,YES,Dotnet,YES,LOW SCORE,,,
+Guillaume,Beaglehole,Sofia,guillaume.beaglehole@example.com,405 699 0481,InMail,YES,QA,YES,LOW SCORE,,,
+Melloney,Statefield,Sofia,melloney.statefield@example.com,926 252 9363,InMail,YES,QA,YES,TO BE INVITED,21-02-20,FAILED,REJECTED
+Brantley,Millington,Plovdiv,brantley.millington@example.com,740 689 3117,InMail,YES,Dotnet,YES,TO BE INVITED,21/02/ 15:00h,FAILED,REJECTED
+Bear,McLuckie,Nis,bear.mcluckie@example.com,630 194 0530,InMail,YES,Dotnet,YES,OVERDUE,,,REFUSED
+Hadlee,Guittet,Varna,hadlee.guittet@example.com,334 811 3799,InMail,YES,Dotnet,YES,OVERDUE,,,
+Arlina,Dowe,Veliko Tarnovo,arlina.dowe@example.com,442 593 9368,InMail,YES,Dotnet,YES,LOW SCORE,,,
+Conrad,Oats,Sofia,conrad.oats@example.com,224 790 6477,InMail,YES,FrontEnd,YES,OVERDUE,,,
+Fan,Pouck,Sofia,fan.pouck@example.com,634 734 4525,InMail,YES,Java,YES,OVERDUE,,,
+Kriste,Joust,Nis,kriste.joust@example.com,652 680 3674,InMail,YES,QA,YES,TO BE INVITED,27-02-20,FAILED,REJECTED
+Raina,Musprat,Nis,raina.musprat@example.com,888 353 0197,InMail,YES,QA,YES,OVERDUE,,,
+Rockey,Iskowitz,Sofia,rockey.iskowitz@example.com,913 205 3042,InMail,YES,FrontEnd,YES,OVERDUE,,,
+Hale,Uridge,Plovdiv,hale.uridge@example.com,967 740 9189,InMail,YES,QA,YES,TO BE INVITED,25-02-20,FAILED,REJECTED
+Wallie,Frickey,Sofia,wallie.frickey@example.com,670 415 4776,InMail,YES,Dotnet,YES,OVERDUE,,,
+Gipsy,O'Hederscoll,Sofia,gipsy.ohederscoll@example.com,262 185 7816,InMail,YES,Java,YES,TO BE INVITED,25-02-20,REFUSED,REFUSED
+Ranique,Black,Varna,ranique.black@example.com,580 168 0416,InMail,YES,Java,YES,OVERDUE,,,
+Antonie,Denyukhin,Nis,antonie.denyukhin@example.com,394 914 0021,InMail,,,,,,,
+Beulah,Georgeot,Plovdiv,beulah.georgeot@example.com,201 517 4829,InMail,YES,FrontEnd,YES,OVERDUE,,,
+Charin,Nan Carrow,Plovdiv,charin.nancarrow@example.com,285 693 8038,InMail,,,,,,,invalid
+Casey,Peller,Plovdiv,casey.peller@example.com,146 842 5571,InMail,,,,,,,
+Berni,Maseres,Plovdiv,berni.maseres@example.com,755 341 5625,InMail,YES,Dotnet,YES,OVERDUE,,,
+Gaylor,Clymo,Plovdiv,gaylor.clymo@example.com,827 810 7973,InMail,YES,FrontEnd,YES,OVERDUE,,,
+Thea,Chatin,Plovdiv,thea.chatin@example.com,636 668 5421,InMail,YES,Java,YES,LOW SCORE,,,
+Caitlin,MacDougal,Veliko Tarnovo,caitlin.macdougal@example.com,859 507 9382,InMail,YES,FrontEnd,YES,OVERDUE,,,
+Avram,Lorrimer,Plovdiv,avram.lorrimer@example.com,789 581 4589,InMail,YES,Dotnet,YES,LOW SCORE,,,
+Tessy,Gilburt,Varna,tessy.gilburt@example.com,311 394 3194,InMail,YES,Dotnet,YES,LOW SCORE,,,
+Jenelle,Filchakov,Nis,jenelle.filchakov@example.com,454 196 6069,InMail,YES,Java,YES,OVERDUE,,,
+Dulce,Neathway,Plovdiv,dulce.neathway@example.com,434 716 8424,InMail,YES,Java,YES,LOW SCORE,,,
+Raquela,Antoniak,Nis,raquela.antoniak@example.com,303 674 5668,InMail,YES,Java,YES,OVERDUE,,,
+Ollie,Snowman,Plovdiv,ollie.snowman@example.com,113 106 6372,InMail,,,,,,,
+Sutherlan,Harte,Plovdiv,sutherlan.harte@example.com,129 467 0868,InMail,YES,Java,YES,LOW SCORE,,,
+Hayden,Bockin,Plovdiv,hayden.bockin@example.com,297 149 7938,InMail,YES,QA,YES,TO BE INVITED,,REFUSED,REFUSED
+Bidget,O'Gorman,Sofia,bidget.ogorman@example.com,547 182 8241,InMail,YES,Java,YES,LOW SCORE,,,
+Hilary,Allum,Sofia,hilary.allum@example.com,605 869 2410,InMail,YES,Java,YES,LOW SCORE,,,
+Jinny,McGrowther,Sofia,jinny.mcgrowther@example.com,684 185 1866,InMail,YES,QA,YES,TO BE INVITED,26-02-20,FAILED,REJECTED
+Jonis,Baumford,Nis,jonis.baumford@example.com,714 782 7864,InMail,YES,Dotnet,YES,TO BE INVITED,03-03-20,FAILED,REJECTED
+Saundra,MacGray,Sofia,saundra.macgray@example.com,997 407 3230,InMail,YES,Dotnet,YES,LOW SCORE,,,
+Shellysheldon,Janaszkiewicz,Sofia,shellysheldon.janaszkiewicz@example.com,386 229 1443,InMail,YES,Dotnet,YES,LOW SCORE,,,
+Jacquenetta,Rennebeck,Svishtov,jacquenetta.rennebeck@example.com,105 547 0825,InMail,YES,FrontEnd,YES,OVERDUE,,,
+Guillema,McVitty,Nis,guillema.mcvitty@example.com,401 596 7761,InMail,YES,FrontEnd,YES,LOW SCORE,,,
+Evangelin,Minshaw,Nis,evangelin.minshaw@example.com,429 722 0960,InMail,YES,FrontEnd,YES,LOW SCORE,,,
+Malina,Lukianovich,Varna,malina.lukianovich@example.com,624 681 6972,InMail,YES,FrontEnd,YES,OVERDUE,,,
+Shurlocke,Weinham,Sofia,shurlocke.weinham@example.com,966 611 9888,InMail,YES,Java,YES,LOW SCORE,,,
+Leia,Askey,,leia.askey@example.com,377 541 2255,InMail,YES,Dotnet,YES,TO BE INVITED,03-03-20,FAILED,REJECTED
+Sandro,Ternault,Nis,sandro.ternault@example.com,676 773 6904,InMail,YES,Dotnet,YES,OVERDUE,,,
+Annie,Stapels,Plovdiv,annie.stapels@example.com,867 696 0789,InMail,YES,FrontEnd,YES,TO BE INVITED,26-02-20,FAILED,REJECTED
+Tedd,Gratrix,Sofia,tedd.gratrix@example.com,854 195 1399,InMail,YES,Dotnet,YES,TO BE INVITED,05-03-20,FAILED,REJECTED
+Lelah,Farfalameev,Sofia,lelah.farfalameev@example.com,569 847 2029,InMail,YES,Java,YES,OVERDUE,,,
+Dasi,Conkay,Varna,dasi.conkay@example.com,122 498 0235,InMail,YES,Java,YES,TO BE INVITED,02-03-20,PASSED,ACCEPTED
+Chrissy,Gianullo,Sofia,chrissy.gianullo@example.com,266 324 0780,InMail,YES,Java,YES,OVERDUE,,,
+Adlai,Pawlick,Sofia,adlai.pawlick@example.com,628 268 9529,InMail,YES,Java,YES,LOW SCORE,,,
+Lorenzo,Costall,Nis,lorenzo.costall@example.com,947 637 5709,InMail,,,,,,,
+Katine,Dexter,Nis,katine.dexter@example.com,419 413 4396,InMail,YES,FrontEnd,YES,OVERDUE,,,
+Rem,Barbery,Nis,rem.barbery@example.com,246 928 6592,InMail,YES,Dotnet,YES,OVERDUE,,,
+Hunter,Whyler,Nis,hunter.whyler@example.com,410 541 8539,InMail,YES,Java,YES,TO BE INVITED,03-03-20,FAILED,REJECTED
+Burk,Cotelard,Veliko Tarnovo,burk.cotelard@example.com,387 490 4088,InMail,YES,Dotnet,YES,OVERDUE,,,
+Jordana,Bysouth,Plovdiv,jordana.bysouth@example.com,414 166 9118,InMail,YES,Java,YES,LOW SCORE,,,
+Skelly,Mioni,Nis,skelly.mioni@example.com,551 131 7307,InMail,YES,Java,YES,LOW SCORE,,,
+Zoe,Meus,Plovdiv,zoe.meus@example.com,414 369 2342,InMail,YES,Java,YES,LOW SCORE,,,
+Delmore,Nigh,Veliko Tarnovo,delmore.nigh@example.com,784 432 7798,InMail,YES,Dotnet,YES,LOW SCORE,,,
+Tanhya,Fraanchyonok,Plovdiv,tanhya.fraanchyonok@example.com,612 171 5533,InMail,YES,Dotnet,YES,OVERDUE,,,
+Callida,Neil,Veliko Tarnovo,callida.neil@example.com,193 240 3032,InMail,YES,Dotnet,YES,LOW SCORE,,,
+Alidia,Kiely,Plovdiv,alidia.kiely@example.com,510 440 7822,InMail,YES,QA,YES,OVERDUE,,,
+Charita,Richardson,Sofia,charita.richardson@example.com,720 669 5703,InMail,YES,Dotnet,YES,LOW SCORE,,,
+Melli,Hanaford,Plovdiv,melli.hanaford@example.com,197 216 4483,InMail,YES,FrontEnd,YES,OVERDUE,,,
+Alessandro,Arkwright,Sofia,alessandro.arkwright@example.com,371 333 6938,InMail,,,,,,,
+Gennie,Eubank,Nis,gennie.eubank@example.com,122 188 4853,InMail,YES,QA,YES,LOW SCORE,,,
+Ambrosi,Heijne,Nis,ambrosi.heijne@example.com,491 773 5363,InMail,YES,Java,YES,OVERDUE,,,
+Jeniece,Bertson,Blagoevgrad,jeniece.bertson@example.com,750 201 4708,InMail,YES,QA,YES,LOW SCORE,,,
+Jilly,Furzer,Plovdiv,jilly.furzer@example.com,502 371 9502,InMail,YES,Dotnet,YES,LOW SCORE,,,
+Marco,France,Sofia,marco.france@example.com,800 452 8307,InMail,YES,QA,YES,TO BE INVITED,27-02-20,FAILED,REJECTED
+Marshall,Oliveira,Plovdiv,marshall.oliveira@example.com,922 108 1329,InMail,YES,FrontEnd,YES,LOW SCORE,,,
+Paulie,Guillard,Nis,paulie.guillard@example.com,912 941 1884,InMail,YES,Dotnet,YES,OVERDUE,,,
+Teresa,Lerego,Nis,teresa.lerego@example.com,316 987 0533,InMail,YES,FrontEnd,YES,TO BE INVITED,02-03-20,PASSED,ACCEPTED
+Norma,Glavis,Nis,norma.glavis@example.com,612 450 9952,InMail,YES,Dotnet,YES,LOW SCORE,,,
+Georas,Barge,Nis,georas.barge@example.com,552 597 6953,InMail,YES,Dotnet,YES,OVERDUE,,,
+Rosmunda,McCahey,Sofia,rosmunda.mccahey@example.com,331 378 4422,InMail,YES,Dotnet,YES,OVERDUE,,,
+Mimi,Blinder,Plovdiv,mimi.blinder@example.com,695 883 4376,InMail,YES,QA,YES,TO BE INVITED,25-02-20,FAILED,REJECTED
+Thea,Doodney,Nis,thea.doodney@example.com,359 420 3240,InMail,YES,Dotnet,YES,LOW SCORE,,,
+Stace,Farnie,Nis,stace.farnie@example.com,146 622 2882,InMail,YES,FrontEnd,YES,OVERDUE,,,
+Kiri,Madge,Nis,kiri.madge@example.com,398 345 2823,InMail,YES,QA,YES,TO BE INVITED,26-02-20,FAILED,REJECTED
+Winthrop,Shopcott,Sofia,winthrop.shopcott@example.com,212 342 3295,InMail,YES,Java,YES,OVERDUE,,,
+Salomon,Lillie,Nis,salomon.lillie@example.com,453 927 1346,InMail,YES,FrontEnd,YES,OVERDUE,,,
+Irvine,Wiltshaw,Nis,irvine.wiltshaw@example.com,647 459 0091,InMail,YES,Java,YES,OVERDUE,,,
+Aliza,Tuck,Sofia,aliza.tuck@example.com,918 457 8540,InMail,YES,Dotnet,YES,OVERDUE,,,
+Hermie,Scattergood,Sofia,hermie.scattergood@example.com,896 956 8841,InMail,YES,Dotnet,YES,TO BE INVITED,02-03-20,FAILED,REJECTED
+Inge,Tyre,Nis,inge.tyre@example.com,942 838 0141,InMail,YES,Java,YES,TO BE INVITED,03-03-20,PASSED,ACCEPTED
+Prince,Matzl,Blagoevgrad,prince.matzl@example.com,607 940 6766,InMail,YES,FrontEnd,YES,LOW SCORE,,,
+Pebrook,Benoy,Nis,pebrook.benoy@example.com,888 378 1508,InMail,YES,Java,YES,TO BE INVITED,03-03-20,FAILED,REJECTED
+Cordey,Romanini,Sofia,cordey.romanini@example.com,977 875 9395,InMail,YES,QA,YES,TO BE INVITED,25-02-20,FAILED,REJECTED
+Kaia,Mabbe,Sofia,kaia.mabbe@example.com,231 570 9344,InMail,,,,,,,
+Bibby,Filppetti,Plovdiv,bibby.filppetti@example.com,848 462 9834,InMail,YES,QA,YES,LOW SCORE,,,
+Minetta,Casetta,Varna,minetta.casetta@example.com,746 969 3169,InMail,YES,FrontEnd,YES,OVERDUE,,,
+Biron,Convery,Nis,biron.convery@example.com,760 658 2544,InMail,YES,Java,YES,TO BE INVITED,03-03-20,FAILED,REJECTED
+Felicity,Cahen,Sofia,felicity.cahen@example.com,896 354 5234,InMail,YES,QA,YES,TO BE INVITED,27-02-20,FAILED,REJECTED
+Araldo,Koppke,Nis,araldo.koppke@example.com,140 891 7347,InMail,YES,FrontEnd,YES,OVERDUE,,,
+Ive,Rosin,Nis,ive.rosin@example.com,109 625 2447,InMail,YES,QA,YES,TO BE INVITED,27-02-20,FAILED,REJECTED
+Ula,Botton,Sofia,ula.botton@example.com,747 652 1246,InMail,YES,Dotnet,YES,TO BE INVITED,05-03-20,FAILED,REJECTED
+Annette,Malyon,,annette.malyon@example.com,100 420 2125,InMail,YES,Java,YES,OVERDUE,,,
+Bessie,Solomonides,Plovdiv,bessie.solomonides@example.com,100 626 0065,InMail,,,,,,,
+Garrett,McAlister,Plovdiv,garrett.mcalister@example.com,704 301 1899,InMail,YES,Java,YES,TO BE INVITED,02-03-20,PASSED,ACCEPTED
+Laural,Shovlin,Nis,laural.shovlin@example.com,570 969 8460,InMail,,,,,,,
+Margot,Rhys,Nis,margot.rhys@example.com,268 854 0534,InMail,YES,Dotnet,YES,OVERDUE,,,
+Arlyne,Cockayne,Plovdiv,arlyne.cockayne@example.com,708 337 7504,InMail,YES,Dotnet,YES,OVERDUE,,,
+Norry,Kowalski,Nis,norry.kowalski@example.com,785 558 7723,InMail,YES,Java,YES,OVERDUE,,,
+Tedmund,Lesslie,Varna,tedmund.lesslie@example.com,564 500 1571,InMail,YES,Java,YES,TO BE INVITED,02-03-20,FAILED,REJECTED
+Kingsley,Elmore,Nis,kingsley.elmore@example.com,876 719 1366,InMail,YES,QA,YES,LOW SCORE,,,
+Goran,Veljes,Sofia,goran.veljes@example.com,163 369 7465,InMail,YES,Dotnet,YES,TO BE INVITED,02-03-20,PASSED,ACCEPTED
+Kath,Friel,Nis,kath.friel@example.com,916 560 8738,InMail,YES,QA,YES,TO BE INVITED,27-02-20,FAILED,REJECTED
+Maurine,Sowood,Sofia,maurine.sowood@example.com,367 954 7814,InMail,YES,Java,YES,TO BE INVITED,05-03-20,FAILED,REJECTED
+Tabbitha,Woodthorpe,Varna,tabbitha.woodthorpe@example.com,765 451 4198,InMail,YES,FrontEnd,YES,OVERDUE,,,
+Laurianne,Sharratt,Plovdiv,laurianne.sharratt@example.com,852 805 9592,InMail,YES,QA,YES,LOW SCORE,,,
+Myca,Jilkes,Nis,myca.jilkes@example.com,582 529 5969,InMail,YES,Dotnet,YES,OVERDUE,,,
+Isa,Tingey,Plovdiv,isa.tingey@example.com,782 936 2950,InMail,YES,Dotnet,YES,TO BE INVITED,05-03-20,FAILED,REJECTED
+Becky,Algy,Sofia,becky.algy@example.com,700 228 3955,Referral,YES,FrontEnd,YES,OVERDUE,,,
+Winifred,Meert,Nis,winifred.meert@example.com,463 325 5223,InMail,,,,,,,
+Luke,Whetson,Nis,luke.whetson@example.com,452 578 5609,InMail,YES,Dotnet,YES,LOW SCORE,,,
+Petronella,Greetland,Plovdiv,petronella.greetland@example.com,201 814 4950,InMail,YES,FrontEnd,YES,OVERDUE,,,
+Jasun,Ferry,Plovdiv,jasun.ferry@example.com,332 899 5192,InMail,YES,FrontEnd,YES,OVERDUE,,,REFUSED
+Charmine,Nare,Nis,charmine.nare@example.com,882 165 2200,InMail,YES,Dotnet,YES,LOW SCORE,,,
+Camey,Staining,Nis,camey.staining@example.com,905 498 8842,InMail,YES,Dotnet,YES,OVERDUE,,,
+Cassey,Steaning,Nis,cassey.steaning@example.com,863 433 4629,InMail,YES,Java,YES,OVERDUE,,,
+Aidan,Kenaway,Nis,aidan.kenaway@example.com,820 671 4348,InMail,YES,QA,YES,TO BE INVITED,05-03-20,FAILED,REJECTED
+Nikolaus,Tennet,Nis,nikolaus.tennet@example.com,605 996 2884,InMail,YES,Dotnet,YES,TO BE INVITED,18-03-20,FAILED,REJECTED
+Porty,Cowern,Nis,porty.cowern@example.com,408 886 7491,InMail,YES,Dotnet,YES,OVERDUE,,,
+Beltran,Izaac,Nis,beltran.izaac@example.com,349 714 9970,InMail,NO,,,,,,REFUSED
+Dierdre,Cargon,Nis,dierdre.cargon@example.com,313 430 1456,InMail,YES,Dotnet,YES,OVERDUE,,,
+Nannie,Monte,Plovdiv,nannie.monte@example.com,792 267 8085,InMail,YES,FrontEnd,YES,OVERDUE,,,
+Tybalt,Stockney,Plovdiv,tybalt.stockney@example.com,563 386 8504,InMail,YES,FrontEnd,YES,OVERDUE,,,
+Thurstan,Newling,Plovdiv,thurstan.newling@example.com,318 332 9353,InMail,YES,FrontEnd,YES,OVERDUE,,,
+Shanta,Franssen,Plovdiv,shanta.franssen@example.com,475 788 0019,InMail,YES,FrontEnd,YES,LOW SCORE,,,
+Lola,Lared,Plovdiv,lola.lared@example.com,274 858 0872,InMail,YES,FrontEnd,YES,TO BE INVITED,20-03-20,PASSED,ACCEPTED
+Essy,Jodrellec,Plovdiv,essy.jodrellec@example.com,678 107 5536,InMail,YES,FrontEnd,YES,LOW SCORE,,,
+Lizette,Renzo,Nis,lizette.renzo@example.com,406 965 4024,InMail,YES,Dotnet,YES,OVERDUE,,,
+Daria,Honnicott,Nis,daria.honnicott@example.com,772 344 0074,InMail,YES,Java,YES,OVERDUE,,,
+Letizia,Busst,Plovdiv,letizia.busst@example.com,351 847 2038,InMail,YES,Dotnet,YES,OVERDUE,,,
+Delinda,Corcut,Varna,delinda.corcut@example.com,836 358 9872,InMail,YES,FrontEnd,YES,OVERDUE,,,
+Harmonie,Towler,Nis,harmonie.towler@example.com,344 614 1063,InMail,YES,Java,YES,OVERDUE,,,
+Victoir,Simmans,Plovdiv,victoir.simmans@example.com,541 288 0955,InMail,YES,FrontEnd,YES,LOW SCORE,,,
+Tarrah,Castletine,Plovdiv,tarrah.castletine@example.com,265 158 9341,InMail,YES,FrontEnd,YES,OVERDUE,,,
+Marjory,Worgan,Plovdiv,marjory.worgan@example.com,696 751 3625,InMail,YES,FrontEnd,YES,OVERDUE,,,
+Tobie,Deluca,Nis,tobie.deluca@example.com,415 685 2476,InMail,YES,Java,YES,LOW SCORE,,,
+Alysa,Stowell,Plovdiv,alysa.stowell@example.com,407 925 3869,InMail,YES,Java,YES,OVERDUE,,,
+Susie,Keenlyside,Plovdiv,susie.keenlyside@example.com,943 968 1729,InMail,YES,Java,YES,LOW SCORE,,,
+Angelita,Lipgens,Plovdiv,angelita.lipgens@example.com,670 712 1996,InMail,YES,Java,YES,TO BE INVITED,27-03-20,PASSED,ACCEPTED
+Heall,Wardale,Plovdiv,heall.wardale@example.com,504 784 8070,InMail,YES,FrontEnd,YES,OVERDUE,,,
+Shelley,Jedrysik,Plovdiv,shelley.jedrysik@example.com,662 601 4609,InMail,YES,FrontEnd,YES,OVERDUE,,,
+George,Assinder,Plovdiv,george.assinder@example.com,901 132 8811,InMail,YES,FrontEnd,YES,OVERDUE,,,
+Avram,Heifer,Nis,avram.heifer@example.com,458 296 1746,InMail,YES,Dotnet,YES,LOW SCORE,,,
+Garwood,Rolfi,Plovdiv,garwood.rolfi@example.com,533 158 8895,InMail,YES,Dotnet,YES,TO BE INVITED,23-03-20,PASSED,ACCEPTED
+Decca,Durrant,Plovdiv,decca.durrant@example.com,757 456 0620,InMail,YES,FrontEnd,YES,OVERDUE,,,
+Keelia,Cuttle,Sofia,keelia.cuttle@example.com,503 301 5700,InMail,YES,Dotnet,YES,LOW SCORE,,,REJECTED
+Dag,Banham,Plovdiv,dag.banham@example.com,915 725 4059,InMail,YES,FrontEnd,YES,OVERDUE,,,
+Jethro,Dowyer,Plovdiv,jethro.dowyer@example.com,265 280 2316,InMail,YES,FrontEnd,YES,OVERDUE,,,
+Charlena,Hammond,Plovdiv,charlena.hammond@example.com,940 937 1796,InMail,YES,FrontEnd,YES,TO BE INVITED,30-03-20,FAILED,REJECTED
+Grant,Gravestone,Plovdiv,grant.gravestone@example.com,616 441 1593,InMail,YES,QA,YES,TO BE INVITED,24-03-20,FAILED,REJECTED
+Teodora,Binnion,Plovdiv,teodora.binnion@example.com,580 308 4485,InMail,YES,FrontEnd,YES,OVERDUE,,,
+Edith,Caroll,Nis,edith.caroll@example.com,873 114 2201,InMail,YES,Java,YES,OVERDUE,,,
+Buiron,MacDuff,Plovdiv,buiron.macduff@example.com,453 297 8505,InMail,YES,FrontEnd,YES,OVERDUE,,,
+Shirley,Durnill,Plovdiv,shirley.durnill@example.com,797 159 2429,InMail,YES,Java,,LOW SCORE,,,
+Marcus,Mapston,Plovdiv,marcus.mapston@example.com,473 732 8262,InMail,YES,FrontEnd,YES,OVERDUE,,,
+Kacie,Lamperd,Plovdiv,kacie.lamperd@example.com,184 782 5762,InMail,YES,FrontEnd,YES,LOW SCORE,,,
+Franciska,Nutt,Veliko Tarnovo,franciska.nutt@example.com,960 315 3563,InMail,YES,FrontEnd,YES,OVERDUE,,,
+Gib,Dunbobin,Plovdiv,gib.dunbobin@example.com,686 239 8192,InMail,YES,Dotnet,YES,LOW SCORE,,,
+Mabelle,Pretor,,mabelle.pretor@example.com,759 601 7615,InMail,YES,Dotnet,YES,OVERDUE,,,
