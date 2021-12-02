@@ -104,12 +104,14 @@ public class ParseCsv implements CsvParsing {
         candidate.setCity(parseCity(bean));
         candidate.setEmail(((DomainModel) bean).getEmail());
         candidate.setPhone(((DomainModel) bean).getPhone());
-
-        String sourcesString = (((DomainModel) bean).getSource()).toUpperCase();
-        Sources sources = Sources.valueOf(sourcesString);
-        candidate.setSource(sources);
+        candidate.setSource(parseSource(bean));
 
         return candidate;
+    }
+
+    private Sources parseSource(Object bean) {
+        String sourcesString = (((DomainModel) bean).getSource()).toUpperCase();
+        return Sources.valueOf(sourcesString);
     }
 
     private City parseCity(Object bean) {
