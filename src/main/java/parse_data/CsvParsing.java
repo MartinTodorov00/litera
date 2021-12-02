@@ -4,6 +4,6 @@ import java.util.List;
 
 public interface CsvParsing {
 
-    void parseCsv();
-    void domainModelToEntities(List<Object> name);
+    ApplicationModel parseCsv();
+    ApplicationModel domainModelToEntities(List<Object> name);
 }

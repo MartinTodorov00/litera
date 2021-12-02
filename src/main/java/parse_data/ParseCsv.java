@@ -18,15 +18,15 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class CsvParse implements CsvParsing {
+public class ParseCsv implements CsvParsing {
 
-    private Applications applications;
+    private ApplicationModel applications;
 
-    public CsvParse() {
-        applications = new Applications();
+    public ParseCsv() {
+        applications = new ApplicationModel();
     }
 
-    public void parseCsv() {
+    public ApplicationModel parseCsv() {
         try {
             //domain model
             List<Object> beans = new CsvToBeanBuilder<>(new FileReader("src/main/resources/litera-candidates-data.csv"))
@@ -35,50 +35,66 @@ public class CsvParse implements CsvParsing {
                     .parse();
 
             domainModelToEntities(beans);
-
+            return applications;
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return null;
     }
 
-    public void domainModelToEntities(List<Object> beans) {
+    public ApplicationModel domainModelToEntities(List<Object> beans) {
         for (Object bean : beans) {
-
             Candidate candidate = parseCandidate(bean);
             Application application = parseApplication(bean);
             application.setCandidate(candidate);
             applications.addApplication(application);
         }
+        return applications;
     }
 
     private Application parseApplication(Object bean) {
         Application application = new Application();
 
-        String preSelectionStatusString = (((DomainModel) bean).getPreSelectionStatus()).replaceAll(" ", "_").toUpperCase();
-        if (!(preSelectionStatusString.isEmpty())) {
-            PreSelectionStatuses preSelectionStatuses = PreSelectionStatuses.valueOf(preSelectionStatusString);
-            application.setPreSelectionStatus(preSelectionStatuses);
-        }
+        PreSelectionStatuses preSelectionStatuses = parsePreSelectionStatuses(bean);
+        application.setPreSelectionStatus(preSelectionStatuses);
 
-        String selectionResultString = (((DomainModel) bean).getSelectionResult()).toUpperCase();
-        if (!(selectionResultString.isEmpty())) {
-            SelectionResults selectionResults = SelectionResults.valueOf(selectionResultString);
-            application.setSelectionResult(selectionResults);
-        }
+        SelectionResults selectionResults = parseSelectionResult(bean);
+        application.setSelectionResult(selectionResults);
 
-        String interviewResultString = (((DomainModel) bean).getInterviewResult()).toUpperCase();
-        if (!(interviewResultString.isEmpty())) {
-            InterviewResults interviewResults = InterviewResults.valueOf(interviewResultString);
-            application.setInterviewResult(interviewResults);
-        }
+        InterviewResults interviewResults = parseInterviewResults(bean);
+        application.setInterviewResult(interviewResults);
 
         application.setTechnology(parseTechnology(bean));
 
-        String date = ((DomainModel) bean).getInterviewDateAndTime();
-        LocalDateTime localDateTime = parseDate(date);
+        LocalDateTime localDateTime = parseDate(bean);
         application.setInterviewDateAndTime(localDateTime);
 
         return application;
+    }
+
+    private PreSelectionStatuses parsePreSelectionStatuses(Object bean) {
+        String preSelectionStatusString = (((DomainModel) bean).getPreSelectionStatus()).replaceAll(" ",
+                "_").toUpperCase();
+        if (!(preSelectionStatusString.isEmpty())) {
+            return PreSelectionStatuses.valueOf(preSelectionStatusString);
+        }
+        return null;
+    }
+
+    private SelectionResults parseSelectionResult(Object bean) {
+        String selectionResultString = (((DomainModel) bean).getSelectionResult()).toUpperCase();
+        if (!(selectionResultString.isEmpty())) {
+            return SelectionResults.valueOf(selectionResultString);
+        }
+        return null;
+    }
+
+    private InterviewResults parseInterviewResults(Object bean) {
+        String interviewResultString = (((DomainModel) bean).getInterviewResult()).toUpperCase();
+        if (!(interviewResultString.isEmpty())) {
+            return InterviewResults.valueOf(interviewResultString);
+        }
+        return null;
     }
 
     private Candidate parseCandidate(Object bean) {
@@ -104,7 +120,8 @@ public class CsvParse implements CsvParsing {
         return new Technology(((DomainModel) bean).getTechnology());
     }
 
-    private LocalDateTime parseDate(String date) {
+    private LocalDateTime parseDate(Object bean) {
+        String date = ((DomainModel) bean).getInterviewDateAndTime();
         String regex = "(?<day>\\d{2})(/|-)(?<month>\\d{2})\\2(?<year>\\d{2})?((\\D*)(?<hour>\\d{2}):(?<minute>\\d{2}))?";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(date);
