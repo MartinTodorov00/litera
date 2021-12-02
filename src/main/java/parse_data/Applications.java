@@ -6,21 +6,21 @@ import java.util.ArrayList;
 
 public class Applications {
 
-    private ArrayList<Application> applications;
+    private ArrayList<Application> ApplicationsRepository;
 
     public Applications() {
-        this.applications = new ArrayList<>();
+        this.ApplicationsRepository = new ArrayList<>();
     }
 
     public void addApplication(Application application) {
-        this.applications.add(application);
+        this.ApplicationsRepository.add(application);
     }
 
     public ArrayList<Application> getApplications() {
-        return this.applications;
+        return this.ApplicationsRepository;
     }
 
     public void setApplications(ArrayList<Application> applications) {
-        this.applications = applications;
+        this.ApplicationsRepository = applications;
     }
 }
