@@ -11,6 +11,10 @@ public class Candidate {
     private String phone;
     private Sources source;
 
+    public Candidate() {
+
+    }
+
     public Candidate(String name, String surName, City city, String email, String phone, Sources source) {
         this.name = name;
         this.surName = surName;

@@ -1,23 +1,34 @@
 package domain_model;
 
-import java.time.LocalDateTime;
+import com.opencsv.bean.CsvBindByName;
 
 public class DomainModel {
 
+    @CsvBindByName(column = "Name")
     private String name;
+    @CsvBindByName(column = "Surname")
     private String surName;
+    @CsvBindByName(column = "City")
     private String city;
+    @CsvBindByName(column = "Email")
     private String email;
+    @CsvBindByName(column = "Phone")
     private String phone;
+    @CsvBindByName(column = "Source")
     private String source;
+    @CsvBindByName(column = "Technology")
     private String technology;
+    @CsvBindByName(column = "Pre-selection Status")
     private String preSelectionStatus;
-    private LocalDateTime interviewDateAndTime;
+    @CsvBindByName(column = "Interview Date")
+    private String interviewDateAndTime;
+    @CsvBindByName(column = "Interview Result")
     private String interviewResult;
+    @CsvBindByName(column = "Selection Result")
     private String selectionResult;
 
     public DomainModel(String name, String surName, String city, String email, String phone, String source,
-                       String technology, String preSelectionStatus, LocalDateTime interviewDateAndTime,
+                       String technology, String preSelectionStatus, String interviewDateAndTime,
                        String interviewResult, String selectionResult) {
         this.name = name;
         this.surName = surName;
@@ -30,6 +41,9 @@ public class DomainModel {
         this.interviewDateAndTime = interviewDateAndTime;
         this.interviewResult = interviewResult;
         this.selectionResult = selectionResult;
+    }
+
+    public DomainModel() {
     }
 
     public String getName() {
@@ -96,11 +110,11 @@ public class DomainModel {
         this.preSelectionStatus = preSelectionStatus;
     }
 
-    public LocalDateTime getInterviewDateAndTime() {
+    public String getInterviewDateAndTime() {
         return interviewDateAndTime;
     }
 
-    public void setInterviewDateAndTime(LocalDateTime interviewDateAndTime) {
+    public void setInterviewDateAndTime(String interviewDateAndTime) {
         this.interviewDateAndTime = interviewDateAndTime;
     }
 
