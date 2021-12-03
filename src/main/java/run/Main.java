@@ -1,12 +1,20 @@
 package run;
 
-import parse_data.CsvParse;
+import parse_data.ApplicationModel;
+import parse_data.ParseCsv;
+import store_data.StoreToMysql;
+
+import java.sql.SQLException;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
 
-        CsvParse csvParse = new CsvParse();
-        csvParse.parseCsv();
+        ParseCsv parseCsv = new ParseCsv();
+        ApplicationModel applications = parseCsv.parseCsv();
+
+        StoreToMysql storeToMysql = new StoreToMysql();
+        storeToMysql.setConnection();
+        storeToMysql.storeDataToMysql(applications);
     }
 }
