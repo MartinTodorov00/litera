@@ -14,7 +14,6 @@ public class Main {
         ApplicationModel applications = parseCsv.parseCsv();
 
         StoreToMysql storeToMysql = new StoreToMysql();
-        storeToMysql.setConnection();
-        storeToMysql.storeDataToMysql(applications);
+        storeToMysql.storeAllDataToMysql(applications);
     }
 }
