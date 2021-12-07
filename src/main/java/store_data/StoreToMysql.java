@@ -5,14 +5,18 @@ import entities.enums.PreSelectionStatuses;
 import entities.enums.SelectionResults;
 import entities.enums.Sources;
 import parse_data.ApplicationModel;
+import parse_data.ParseCsv;
 
 import java.io.IOException;
 import java.sql.*;
 import java.time.LocalDateTime;
 
-public class StoreToMysql {
+public class StoreToMysql{
 
-    public void storeAllDataToMysql(ApplicationModel applications) throws SQLException {
+    private ParseCsv parseCsv=new ParseCsv();
+    private ApplicationModel applications = parseCsv.parseCsv();
+
+    public void storeAllDataToMysql() throws SQLException {
 
         for (int i = 0; i < applications.getApplications().size(); i++) {
             storeCity(applications, i);
