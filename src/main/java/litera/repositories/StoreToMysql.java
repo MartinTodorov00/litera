@@ -1,19 +1,19 @@
-package store_data;
+package repositories;
 
 import entities.enums.InterviewResults;
 import entities.enums.PreSelectionStatuses;
 import entities.enums.SelectionResults;
 import entities.enums.Sources;
-import parse_data.ApplicationModel;
-import parse_data.ParseCsv;
+import entities.ApplicationModel;
+import controllers.ParseCsvImpl;
 
 import java.io.IOException;
 import java.sql.*;
 import java.time.LocalDateTime;
 
-public class StoreToMysql{
+public class StoreToMysql {
 
-    private ParseCsv parseCsv=new ParseCsv();
+    private ParseCsvImpl parseCsv = new ParseCsvImpl();
     private ApplicationModel applications = parseCsv.parseCsv();
 
     public void storeAllDataToMysql() throws SQLException {

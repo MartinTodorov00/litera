@@ -1,8 +1,10 @@
-package parse_data;
+package controllers;
+
+import entities.ApplicationModel;
 
 import java.util.List;
 
-public interface CsvParsing {
+public interface ParseCsv {
 
     ApplicationModel parseCsv();
     ApplicationModel domainModelToEntities(List<Object> name);

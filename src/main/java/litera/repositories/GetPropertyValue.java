@@ -1,4 +1,4 @@
-package store_data;
+package repositories;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;

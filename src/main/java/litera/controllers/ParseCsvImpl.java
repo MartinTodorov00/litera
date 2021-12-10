@@ -1,11 +1,8 @@
-package parse_data;
+package controllers;
 
 import com.opencsv.bean.CsvToBeanBuilder;
 import domain_model.DomainModel;
-import entities.Application;
-import entities.Candidate;
-import entities.City;
-import entities.Technology;
+import entities.*;
 import entities.enums.InterviewResults;
 import entities.enums.PreSelectionStatuses;
 import entities.enums.SelectionResults;
@@ -18,11 +15,11 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class ParseCsv implements CsvParsing {
+public class ParseCsvImpl implements ParseCsv {
 
     private ApplicationModel applications;
 
-    public ParseCsv() {
+    public ParseCsvImpl() {
         applications = new ApplicationModel();
     }
 

@@ -1,9 +1,11 @@
-package parse_data;
+package entities;
 
 import entities.Application;
 
 import java.util.ArrayList;
 import java.util.List;
+
+//import static javax.management.modelmbean.DescriptorSupport.entities;
 
 public class ApplicationModel {
 

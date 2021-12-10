@@ -4,7 +4,9 @@ import picocli.CommandLine;
 import picocli.CommandLine.Option;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.ArgGroup;
-import store_data.StoreToMysql;
+import CommandLineInterface.ReportArgGroup;
+import repositories.ReportLayer;
+import repositories.StoreToMysql;
 
 import java.io.File;
 import java.sql.SQLException;
@@ -40,18 +42,19 @@ public class Main implements Runnable {
     private void report(
             @ArgGroup(exclusive = false, multiplicity = "1")
                     ReportArgGroup argGroup
-    ) {
-        // Generate reports
-    }
+    ) throws SQLException {
+        ReportLayer reportingLayer = new ReportLayer();
+        reportingLayer.check(argGroup);
 
-    static class ReportArgGroup {
-        @Option(names = {"--period", "-p"}) String period;
-        @Option(names = "--source", arity = "0..1", defaultValue = "none") String source;
-        @Option(names = "--interview", arity = "0..1", defaultValue = "none") String status;
-        @Option(names = "--talent-funnel", description = "The number of candidates who applied " +
-                        "and the number of those who accepted an internship ") boolean talentFunnel;
-        @Option(names = "--aggregation", description = "Grouped by either city or technology") String aggregation;
     }
+//    static class ReportArgGroup {
+//        @Option(names = {"--period", "-p"}) String period;
+//        @Option(names = "--source", arity = "0..1", defaultValue = "none") String source;
+//        @Option(names = "--interview", arity = "0..1", defaultValue = "none") String status;
+//        @Option(names = "--talent-funnel", description = "The number of candidates who applied " +
+//                        "and the number of those who accepted an internship ") boolean talentFunnel;
+//        @Option(names = "--aggregation", description = "Grouped by either city or technology") String aggregation;
+//    }
 
     @Override
     public void run() {
