@@ -13,4 +13,9 @@ public class ConnectionJbdc {
         properties.getPropValues();
         return DriverManager.getConnection(properties.getDb_url(), properties.getDb_username(), properties.getDb_password());
     }
+
+    public static Connection getConnection(String name) throws SQLException, IOException {
+        properties.getPropValues();
+        return DriverManager.getConnection(properties.getDb_url() + name, properties.getDb_username(), properties.getDb_password());
+    }
 }

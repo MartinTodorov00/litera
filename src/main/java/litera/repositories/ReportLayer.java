@@ -10,6 +10,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class ReportLayer {
 
@@ -17,6 +19,8 @@ public class ReportLayer {
     ReportController reportController = new ReportController();
 
     public void check(ReportArgGroup argGroup) throws SQLException {
+
+        ArrayList<String> arguments = new ArrayList<>();
 
         String year = null;
         String month = null;
@@ -31,6 +35,9 @@ public class ReportLayer {
         String statusName = null;
         boolean haveStatusGroup = false;
         String aggregationName = null;
+        boolean haveSource = false;
+        boolean haveResult = false;
+        boolean haveName = false;
 
         String[] period = null;
         if (!(argGroup.getPeriod() == null)) {
@@ -64,18 +71,17 @@ public class ReportLayer {
         }
 
         if (argGroup.isTalentFunnel()) {
-            querySb.append("SELECT COUNT(*) AS accepted FROM\n" +
-                    "(SELECT COUNT(*) as applied FROM candidate as c\n" +
-                    "INNER JOIN application as a on c.id = a.candidate_id\n" +
-                    "WHERE a.selection_result = \"ACCEPTED\") as ac\n" +
-                    "INNER JOIN application as a2\n" +
-                    "INNER JOIN candidate c2 on c2.id = a2.candidate_id\n" +
-                    "INNER JOIN city as ci on c2.city_id = ci.id\n" +
-                    "INNER JOIN interview as i on a2.interview_id = i.id\n" +
-                    "INNER JOIN technology as t on a2.technology_id = t.id\n" +
-                    "");
+            querySb.append("""
+                    SELECT COUNT(*) AS accepted, (SELECT COUNT(*) as applied FROM candidate as c
+                    INNER JOIN application as a on c.id = a.candidate_id
+                    WHERE a.selection_result = "ACCEPTED") AS applied FROM application AS a
+                    INNER JOIN candidate c on c.id = a.candidate_id
+                    INNER JOIN city as ci on c.city_id = ci.id
+                    INNER JOIN interview as i on a.interview_id = i.id
+                    INNER JOIN technology as t on a.technology_id = t.id
+                    """);
         } else {
-            querySb.append("SELECT COUNT(*) AS count FROM application as a\n" +
+            querySb.append("SELECT COUNT(*) AS applied FROM application as a\n" +
                     "INNER JOIN candidate as c on a.candidate_id = c.id\n" +
                     "INNER JOIN city as ci on c.city_id = ci.id\n" +
                     "INNER JOIN interview as i on a.interview_id = i.id\n" +
@@ -123,7 +129,6 @@ public class ReportLayer {
             if (sourceName == null) {
                 querySb.append(" GROUP BY 'source");
                 haveSourceGroup = true;
-//            querySb.append("" + allSources + "");
             }
             if (sourceName != null && haveDate) {
                 querySb.append(" AND c.source = '");
@@ -134,6 +139,7 @@ public class ReportLayer {
                 querySb.append("" + sourceName + "");
                 haveSourceWhere = true;
             }
+            haveSource = true;
             querySb.append("' ");
         }
 
@@ -153,6 +159,7 @@ public class ReportLayer {
                 querySb.append(" WHERE i.interview_result = '");
                 querySb.append("" + statusName + "");
             }
+            haveResult = true;
             querySb.append("' ");
         }
 
@@ -170,15 +177,17 @@ public class ReportLayer {
                     querySb.append(" GROUP BY '" + aggregationName);
                 }
             }
+            haveName = true;
             querySb.append("' ");
         }
-        getDataFromDatabase(querySb);
+        getDataFromDatabase(querySb, argGroup, haveSource, haveResult, haveName);
     }
 
-    public void getDataFromDatabase(StringBuilder querySb) throws SQLException {
+    public void getDataFromDatabase(StringBuilder querySb, ReportArgGroup argGroup, boolean haveSource, boolean haveResult,
+                                    boolean haveName) throws SQLException {
 
         try {
-            Connection connection = ConnectionJbdc.getConnection();
+            Connection connection = ConnectionJbdc.getConnection("litera");
 
             PreparedStatement prepareStatement = connection.prepareStatement(String.valueOf(querySb));
 
@@ -186,11 +195,18 @@ public class ReportLayer {
             while (resultSet.next()) {
                 ReportInfo reportInfo = new ReportInfo();
                 reportInfo.setAppliedCandidatesSum(resultSet.getInt("applied"));
-                reportInfo.setAcceptedCandidatesSum(resultSet.getInt("accepted"));
-                reportInfo.setSource(Sources.valueOf(resultSet.getString("source")));
-                reportInfo.setInterviewResult(InterviewResults.valueOf(resultSet.getString("interview_result")));
-                reportInfo.setAggregation(resultSet.getString("name"));
-
+                if (argGroup.isTalentFunnel()) {
+                    reportInfo.setAcceptedCandidatesSum(resultSet.getInt("accepted"));
+                }
+//                if (haveSource) {
+//                    reportInfo.setSource(Sources.valueOf(resultSet.getString("source")));
+//                }
+//                if (haveResult) {
+//                    reportInfo.setInterviewResult(InterviewResults.valueOf(resultSet.getString("interview_result")));
+//                }
+//                if (haveName) {
+//                    reportInfo.setAggregation(resultSet.getString("name"));
+//                }
                 reportController.addReportInfo(reportInfo);
             }
         } catch (SQLException | IOException sqlException) {

@@ -16,8 +16,9 @@ public class StoreToMysql {
     private ParseCsvImpl parseCsv = new ParseCsvImpl();
     private ApplicationModel applications = parseCsv.parseCsv();
 
-    public void storeAllDataToMysql() throws SQLException {
-
+    public void storeAllDataToMysql() throws SQLException, IOException {
+        Seeder seeder = new Seeder();
+        seeder.isCreate();
         for (int i = 0; i < applications.getApplications().size(); i++) {
             storeCity(applications, i);
             storeCandidate(applications, i);
@@ -30,7 +31,7 @@ public class StoreToMysql {
     public void storeCity(ApplicationModel applications, int i) throws SQLException {
         PreparedStatement preparedStatementForCity = null;
         try {
-            Connection connection = ConnectionJbdc.getConnection();
+            Connection connection = ConnectionJbdc.getConnection("litera");
 
             String queryForCity = "INSERT INTO city(name)\n" +
                     "VALUES (?)";
@@ -57,7 +58,7 @@ public class StoreToMysql {
     public void storeCandidate(ApplicationModel applications, int i) throws SQLException {
         PreparedStatement preparedStatementForCandidate = null;
         try {
-            Connection connection = ConnectionJbdc.getConnection();
+            Connection connection = ConnectionJbdc.getConnection("litera");
 
             String queryForCandidate = "INSERT INTO candidate(name, surname, city_id, email, phone, source)\n" +
                     "VALUES (?, ?, ?, ?, ?, ?)";
@@ -92,7 +93,7 @@ public class StoreToMysql {
     public void storeTechnology(ApplicationModel applications, int i) throws SQLException {
         PreparedStatement preparedStatementForTechnology = null;
         try {
-            Connection connection = ConnectionJbdc.getConnection();
+            Connection connection = ConnectionJbdc.getConnection("litera");
 
             String queryForTechnology = "INSERT INTO technology(name)\n" +
                     "VALUES (?)";
@@ -119,7 +120,7 @@ public class StoreToMysql {
     public void storeInterview(ApplicationModel applications, int i) throws SQLException {
         PreparedStatement preparedStatementForInterview = null;
         try {
-            Connection connection = ConnectionJbdc.getConnection();
+            Connection connection = ConnectionJbdc.getConnection("litera");
 
             String queryForInterview = "INSERT INTO interview(interview_date, interview_result)\n" +
                     "VALUES (?, ?)";
@@ -150,7 +151,7 @@ public class StoreToMysql {
     public void storeApplication(ApplicationModel applications, int i) throws SQLException {
         PreparedStatement preparedStatementForApplication = null;
         try {
-            Connection connection = ConnectionJbdc.getConnection();
+            Connection connection = ConnectionJbdc.getConnection("litera");
 
             String queryForApplication = "INSERT INTO application(`pre-selection_status`, `selection_result`, candidate_id, technology_id, interview_id)\n" +
                     "VALUES (?, ?, ?, ?, ?)";
