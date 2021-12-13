@@ -1,9 +1,9 @@
-package repositories;
+package services;
 
 import entities.enums.InterviewResults;
 import entities.enums.Sources;
 
-public class ReportInfo {
+public class Report {
 
     private Integer appliedCandidatesSum;
     private Integer acceptedCandidatesSum;
@@ -11,7 +11,7 @@ public class ReportInfo {
     private Sources source;
     private String aggregation;
 
-    public ReportInfo() {
+    public Report() {
     }
 
     public Sources getSource() {

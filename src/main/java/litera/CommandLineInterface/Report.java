@@ -2,7 +2,7 @@ package CommandLineInterface;
 
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
-import repositories.ReportLayer;
+import repositories.ReportLayerImpl;
 
 import java.sql.SQLException;
 
@@ -10,13 +10,13 @@ import java.sql.SQLException;
 public class Report implements Runnable {
 
     @CommandLine.ArgGroup(exclusive = false, multiplicity = "1")
-    private ReportArgGroup argGroup = new ReportArgGroup();
+    private ReportArguments arguments = new ReportArguments();
 
     @Override
     public void run() {
-        ReportLayer reportingLayer = new ReportLayer();
+        ReportLayerImpl reportingLayer = new ReportLayerImpl();
         try {
-            reportingLayer.check(argGroup);
+            reportingLayer.check(arguments);
         } catch (SQLException sqlException) {
             sqlException.printStackTrace();
         }

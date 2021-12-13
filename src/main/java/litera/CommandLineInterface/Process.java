@@ -1,7 +1,7 @@
 package CommandLineInterface;
 
 import picocli.CommandLine.Command;
-import repositories.StoreToMysql;
+import repositories.StoreDataImpl;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -13,7 +13,7 @@ public class Process implements Runnable {
     @Override
     public void run() {
         try {
-            new StoreToMysql().storeAllDataToMysql();
+            new StoreDataImpl().storeAllDataToMysql();
         } catch (SQLException | IOException sqlException) {
             sqlException.printStackTrace();
         }

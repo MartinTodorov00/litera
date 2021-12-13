@@ -2,7 +2,7 @@ package CommandLineInterface;
 
 import picocli.CommandLine;
 
-public class ReportArgGroup {
+public class ReportArguments {
     @CommandLine.Option(names = {"--period", "-p"})
     String period;
     @CommandLine.Option(names = "--source", arity = "0..1", defaultValue = "none")

@@ -4,14 +4,16 @@ import entities.enums.InterviewResults;
 import entities.enums.PreSelectionStatuses;
 import entities.enums.SelectionResults;
 import entities.enums.Sources;
-import entities.ApplicationModel;
+import services.ApplicationModel;
 import controllers.ParseCsvImpl;
+import services.ConnectionJbdc;
+import services.Seeder;
 
 import java.io.IOException;
 import java.sql.*;
 import java.time.LocalDateTime;
 
-public class StoreToMysql {
+public class StoreDataImpl implements StoreData {
 
     private ParseCsvImpl parseCsv = new ParseCsvImpl();
     private ApplicationModel applications = parseCsv.parseCsv();
@@ -88,7 +90,6 @@ public class StoreToMysql {
             preparedStatementForCandidate.close();
         }
     }
-
 
     public void storeTechnology(ApplicationModel applications, int i) throws SQLException {
         PreparedStatement preparedStatementForTechnology = null;

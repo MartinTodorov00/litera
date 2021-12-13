@@ -1,11 +1,11 @@
-package repositories;
+package services;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-public class GetPropertyValue {
+public class GetProperty {
 
     private InputStream inputStream;
     private String db_url;

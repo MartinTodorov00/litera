@@ -9,8 +9,8 @@ import picocli.CommandLine.Command;
 import java.sql.SQLException;
 
 @Command(subcommands = {Process.class, Config.class, Report.class}, mixinStandardHelpOptions = true)
-public class Main {
+public class LiteraApplication {
     public static void main(String[] args) throws SQLException {
-        new CommandLine(new Main()).execute(args);
+        new CommandLine(new LiteraApplication()).execute(args);
     }
 }
