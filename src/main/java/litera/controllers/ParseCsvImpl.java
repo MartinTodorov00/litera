@@ -27,7 +27,9 @@ public class ParseCsvImpl implements ParseCsv {
 
     public ApplicationModel parseCsv() {
         try {
-            List<Object> beans = new CsvToBeanBuilder<>(new FileReader(new GetProperty().getFile()))
+            GetProperty getProperty = new GetProperty();
+            getProperty.getPropFile();
+            List<Object> beans = new CsvToBeanBuilder<>(new FileReader(getProperty.getFile()))
                     .withType(DomainModel.class)
                     .build()
                     .parse();

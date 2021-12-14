@@ -29,7 +29,7 @@ public class GetProperty {
         return db_password;
     }
 
-    public void getPropValues() throws IOException {
+    public void getPropDbInfo() throws IOException {
 
         try {
             Properties properties = new Properties();
