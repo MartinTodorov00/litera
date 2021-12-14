@@ -1,4 +1,4 @@
-package parse_data;
+package services;
 
 import entities.Application;
 

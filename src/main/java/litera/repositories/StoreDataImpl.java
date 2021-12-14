@@ -1,23 +1,27 @@
-package store_data;
+package repositories;
 
 import entities.enums.InterviewResults;
 import entities.enums.PreSelectionStatuses;
 import entities.enums.SelectionResults;
 import entities.enums.Sources;
-import parse_data.ApplicationModel;
-import parse_data.ParseCsv;
+import services.ApplicationModel;
+import controllers.ParseCsvImpl;
+import services.ConnectionJbdc;
+import services.Seeder;
 
 import java.io.IOException;
 import java.sql.*;
 import java.time.LocalDateTime;
 
-public class StoreToMysql{
+public class StoreDataImpl implements StoreData {
 
-    private ParseCsv parseCsv=new ParseCsv();
+    private ParseCsvImpl parseCsv = new ParseCsvImpl();
     private ApplicationModel applications = parseCsv.parseCsv();
+    public static String schema = "litera";
 
-    public void storeAllDataToMysql() throws SQLException {
-
+    public void storeAllData() throws SQLException, IOException {
+        Seeder seeder = new Seeder();
+        seeder.isCreate();
         for (int i = 0; i < applications.getApplications().size(); i++) {
             storeCity(applications, i);
             storeCandidate(applications, i);
@@ -30,7 +34,7 @@ public class StoreToMysql{
     public void storeCity(ApplicationModel applications, int i) throws SQLException {
         PreparedStatement preparedStatementForCity = null;
         try {
-            Connection connection = ConnectionJbdc.getConnection();
+            Connection connection = ConnectionJbdc.getConnection(schema);
 
             String queryForCity = "INSERT INTO city(name)\n" +
                     "VALUES (?)";
@@ -49,15 +53,16 @@ public class StoreToMysql{
         } catch (SQLException | IOException sqlException) {
             sqlException.printStackTrace();
         } finally {
-            assert preparedStatementForCity != null;
-            preparedStatementForCity.close();
+            if (preparedStatementForCity != null) {
+                preparedStatementForCity.close();
+            }
         }
     }
 
     public void storeCandidate(ApplicationModel applications, int i) throws SQLException {
         PreparedStatement preparedStatementForCandidate = null;
         try {
-            Connection connection = ConnectionJbdc.getConnection();
+            Connection connection = ConnectionJbdc.getConnection(schema);
 
             String queryForCandidate = "INSERT INTO candidate(name, surname, city_id, email, phone, source)\n" +
                     "VALUES (?, ?, ?, ?, ?, ?)";
@@ -83,16 +88,16 @@ public class StoreToMysql{
         } catch (SQLException | IOException sqlException) {
             sqlException.printStackTrace();
         } finally {
-            assert preparedStatementForCandidate != null;
-            preparedStatementForCandidate.close();
+            if (preparedStatementForCandidate != null) {
+                preparedStatementForCandidate.close();
+            }
         }
     }
-
 
     public void storeTechnology(ApplicationModel applications, int i) throws SQLException {
         PreparedStatement preparedStatementForTechnology = null;
         try {
-            Connection connection = ConnectionJbdc.getConnection();
+            Connection connection = ConnectionJbdc.getConnection(schema);
 
             String queryForTechnology = "INSERT INTO technology(name)\n" +
                     "VALUES (?)";
@@ -111,15 +116,16 @@ public class StoreToMysql{
         } catch (SQLException | IOException sqlException) {
             sqlException.printStackTrace();
         } finally {
-            assert preparedStatementForTechnology != null;
-            preparedStatementForTechnology.close();
+            if (preparedStatementForTechnology != null) {
+                preparedStatementForTechnology.close();
+            }
         }
     }
 
     public void storeInterview(ApplicationModel applications, int i) throws SQLException {
         PreparedStatement preparedStatementForInterview = null;
         try {
-            Connection connection = ConnectionJbdc.getConnection();
+            Connection connection = ConnectionJbdc.getConnection(schema);
 
             String queryForInterview = "INSERT INTO interview(interview_date, interview_result)\n" +
                     "VALUES (?, ?)";
@@ -142,15 +148,16 @@ public class StoreToMysql{
         } catch (SQLException | IOException sqlException) {
             sqlException.printStackTrace();
         } finally {
-            assert preparedStatementForInterview != null;
-            preparedStatementForInterview.close();
+            if (preparedStatementForInterview != null) {
+                preparedStatementForInterview.close();
+            }
         }
     }
 
     public void storeApplication(ApplicationModel applications, int i) throws SQLException {
         PreparedStatement preparedStatementForApplication = null;
         try {
-            Connection connection = ConnectionJbdc.getConnection();
+            Connection connection = ConnectionJbdc.getConnection(schema);
 
             String queryForApplication = "INSERT INTO application(`pre-selection_status`, `selection_result`, candidate_id, technology_id, interview_id)\n" +
                     "VALUES (?, ?, ?, ?, ?)";
@@ -178,8 +185,9 @@ public class StoreToMysql{
         } catch (SQLException | IOException sqlException) {
             sqlException.printStackTrace();
         } finally {
-            assert preparedStatementForApplication != null;
-            preparedStatementForApplication.close();
+            if (preparedStatementForApplication != null) {
+                preparedStatementForApplication.close();
+            }
         }
     }
 }

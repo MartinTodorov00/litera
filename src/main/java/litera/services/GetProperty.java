@@ -1,16 +1,21 @@
-package store_data;
+package services;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-public class GetPropertyValue {
+public class GetProperty {
 
     private InputStream inputStream;
     private String db_url;
     private String db_username;
     private String db_password;
+    private String file;
+
+    public String getFile() {
+        return file;
+    }
 
     public String getDb_url() {
         return db_url;
@@ -24,7 +29,7 @@ public class GetPropertyValue {
         return db_password;
     }
 
-    public void getPropValues() throws IOException {
+    public void getPropDbInfo() throws IOException {
 
         try {
             Properties properties = new Properties();
@@ -43,8 +48,32 @@ public class GetPropertyValue {
         } catch (Exception e) {
             System.out.println("Exception: " + e);
         } finally {
-            assert inputStream != null;
-            inputStream.close();
+            if (inputStream != null) {
+                inputStream.close();
+            }
+        }
+    }
+
+    public void getPropFile() throws IOException {
+
+        try {
+            Properties properties = new Properties();
+            String propFileName = "application.properties";
+
+            inputStream = getClass().getClassLoader().getResourceAsStream(propFileName);
+
+            if (inputStream != null) {
+                properties.load(inputStream);
+            } else {
+                throw new FileNotFoundException("property file '" + propFileName + "' not found in the classpath");
+            }
+            file = properties.getProperty("file");
+        } catch (Exception e) {
+            System.out.println("Exception: " + e);
+        } finally {
+            if (inputStream != null) {
+                inputStream.close();
+            }
         }
     }
 }

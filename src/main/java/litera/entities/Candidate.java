@@ -12,7 +12,6 @@ public class Candidate {
     private Sources source;
 
     public Candidate() {
-
     }
 
     public Candidate(String name, String surName, City city, String email, String phone, Sources source) {

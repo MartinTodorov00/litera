@@ -1,15 +1,14 @@
-package parse_data;
+package controllers;
 
 import com.opencsv.bean.CsvToBeanBuilder;
 import domain_model.DomainModel;
-import entities.Application;
-import entities.Candidate;
-import entities.City;
-import entities.Technology;
+import entities.*;
 import entities.enums.InterviewResults;
 import entities.enums.PreSelectionStatuses;
 import entities.enums.SelectionResults;
 import entities.enums.Sources;
+import services.ApplicationModel;
+import services.GetProperty;
 
 import java.io.FileReader;
 import java.time.LocalDate;
@@ -18,18 +17,19 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class ParseCsv implements CsvParsing {
+public class ParseCsvImpl implements ParseCsv {
 
     private ApplicationModel applications;
 
-    public ParseCsv() {
+    public ParseCsvImpl() {
         applications = new ApplicationModel();
     }
 
     public ApplicationModel parseCsv() {
         try {
-            //domain model
-            List<Object> beans = new CsvToBeanBuilder<>(new FileReader("src/main/resources/litera-candidates-data.csv"))
+            GetProperty getProperty = new GetProperty();
+            getProperty.getPropFile();
+            List<Object> beans = new CsvToBeanBuilder<>(new FileReader(getProperty.getFile()))
                     .withType(DomainModel.class)
                     .build()
                     .parse();
@@ -52,7 +52,7 @@ public class ParseCsv implements CsvParsing {
         return applications;
     }
 
-    private Application parseApplication(Object bean) {
+    public Application parseApplication(Object bean) {
         Application application = new Application();
 
         PreSelectionStatuses preSelectionStatuses = parsePreSelectionStatuses(bean);
@@ -72,7 +72,7 @@ public class ParseCsv implements CsvParsing {
         return application;
     }
 
-    private PreSelectionStatuses parsePreSelectionStatuses(Object bean) {
+    public PreSelectionStatuses parsePreSelectionStatuses(Object bean) {
         String preSelectionStatusString = (((DomainModel) bean).getPreSelectionStatus()).replaceAll(" ",
                 "_").toUpperCase();
         if (!(preSelectionStatusString.isEmpty())) {
@@ -81,7 +81,7 @@ public class ParseCsv implements CsvParsing {
         return null;
     }
 
-    private SelectionResults parseSelectionResult(Object bean) {
+    public SelectionResults parseSelectionResult(Object bean) {
         String selectionResultString = (((DomainModel) bean).getSelectionResult()).toUpperCase();
         if (!(selectionResultString.isEmpty())) {
             return SelectionResults.valueOf(selectionResultString);
@@ -89,7 +89,7 @@ public class ParseCsv implements CsvParsing {
         return null;
     }
 
-    private InterviewResults parseInterviewResults(Object bean) {
+    public InterviewResults parseInterviewResults(Object bean) {
         String interviewResultString = (((DomainModel) bean).getInterviewResult()).toUpperCase();
         if (!(interviewResultString.isEmpty())) {
             return InterviewResults.valueOf(interviewResultString);
@@ -97,7 +97,7 @@ public class ParseCsv implements CsvParsing {
         return null;
     }
 
-    private Candidate parseCandidate(Object bean) {
+    public Candidate parseCandidate(Object bean) {
         Candidate candidate = new Candidate();
         candidate.setName(((DomainModel) bean).getName());
         candidate.setSurName(((DomainModel) bean).getSurName());
@@ -109,20 +109,20 @@ public class ParseCsv implements CsvParsing {
         return candidate;
     }
 
-    private Sources parseSource(Object bean) {
+    public Sources parseSource(Object bean) {
         String sourcesString = (((DomainModel) bean).getSource()).toUpperCase();
         return Sources.valueOf(sourcesString);
     }
 
-    private City parseCity(Object bean) {
+    public City parseCity(Object bean) {
         return new City(((DomainModel) bean).getCity());
     }
 
-    private Technology parseTechnology(Object bean) {
+    public Technology parseTechnology(Object bean) {
         return new Technology(((DomainModel) bean).getTechnology());
     }
 
-    private LocalDateTime parseDate(Object bean) {
+    public LocalDateTime parseDate(Object bean) {
         String date = ((DomainModel) bean).getInterviewDateAndTime();
         String regex = "(?<day>\\d{2})(/|-)(?<month>\\d{2})\\2(?<year>\\d{2})?((\\D*)(?<hour>\\d{2}):(?<minute>\\d{2}))?";
         Pattern pattern = Pattern.compile(regex);
