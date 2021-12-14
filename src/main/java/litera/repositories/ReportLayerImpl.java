@@ -12,14 +12,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class ReportLayerImpl {
+public class ReportLayerImpl implements ReportLayer {
 
     private StringBuilder querySb = new StringBuilder("");
-    ReportModel reportController = new ReportModel();
+    private ReportModel reportController = new ReportModel();
 
     public void check(ReportArguments argGroup) throws SQLException {
-
-        ArrayList<String> arguments = new ArrayList<>();
 
         String year = null;
         String month = null;

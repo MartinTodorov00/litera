@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 public interface StoreData {
 
-    void storeAllDataToMysql() throws SQLException, IOException;
+    void storeAllData() throws SQLException, IOException;
 
     void storeCity(ApplicationModel applications, int i) throws SQLException;
 

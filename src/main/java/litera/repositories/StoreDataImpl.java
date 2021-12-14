@@ -18,7 +18,7 @@ public class StoreDataImpl implements StoreData {
     private ParseCsvImpl parseCsv = new ParseCsvImpl();
     private ApplicationModel applications = parseCsv.parseCsv();
 
-    public void storeAllDataToMysql() throws SQLException, IOException {
+    public void storeAllData() throws SQLException, IOException {
         Seeder seeder = new Seeder();
         seeder.isCreate();
         for (int i = 0; i < applications.getApplications().size(); i++) {

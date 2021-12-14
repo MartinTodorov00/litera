@@ -13,7 +13,7 @@ public class Process implements Runnable {
     @Override
     public void run() {
         try {
-            new StoreDataImpl().storeAllDataToMysql();
+            new StoreDataImpl().storeAllData();
         } catch (SQLException | IOException sqlException) {
             sqlException.printStackTrace();
         }
