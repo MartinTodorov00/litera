@@ -2,8 +2,8 @@ package repositories;
 
 import CommandLineInterface.ReportArguments;
 import services.ConnectionJbdc;
+import services.Print;
 import services.ReportModel;
-import services.Report;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -11,27 +11,26 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class ReportLayerImpl implements ReportLayer {
 
-    private StringBuilder querySb = new StringBuilder("");
-    private ReportModel reportController = new ReportModel();
+    private final StringBuilder querySb = new StringBuilder();
+    private final List<ReportModel> reportModels = new ArrayList<>();
 
     public void check(ReportArguments argGroup) throws SQLException {
 
         String year = null;
         String month = null;
-        boolean haveDate = false;
         String firstDate;
         String lastDate;
         String allSources = null;
         String sourceName = null;
-        boolean haveSourceGroup = false;
-        boolean haveSourceWhere = false;
         String allStatuses = null;
         String statusName = null;
-        boolean haveStatusGroup = false;
         String aggregationName = null;
+        boolean isUsedWhere = false;
+        boolean isUsedGroup = false;
         boolean haveSource = false;
         boolean haveResult = false;
         boolean haveName = false;
@@ -69,143 +68,137 @@ public class ReportLayerImpl implements ReportLayer {
 
         if (argGroup.isTalentFunnel()) {
             querySb.append("""
-                    SELECT COUNT(*) AS accepted, (SELECT COUNT(*) as applied FROM candidate as c
-                    INNER JOIN application as a on c.id = a.candidate_id
-                    WHERE a.selection_result = "ACCEPTED") AS applied FROM application AS a
-                    INNER JOIN candidate c on c.id = a.candidate_id
+                    SELECT COUNT(*) AS accepted, c.source, t.name, c.name, i.interview_result, (SELECT COUNT(*) as applied
+                    FROM candidate as c
+                    INNER JOIN application as a on a.candidate_id = c.id
+                    WHERE a.selection_result = "ACCEPTED") AS applied FROM candidate as c
+                    INNER JOIN application as a on a.candidate_id = c.id
                     INNER JOIN city as ci on c.city_id = ci.id
                     INNER JOIN interview as i on a.interview_id = i.id
                     INNER JOIN technology as t on a.technology_id = t.id
                     """);
         } else {
-            querySb.append("SELECT COUNT(*) AS applied FROM application as a\n" +
-                    "INNER JOIN candidate as c on a.candidate_id = c.id\n" +
-                    "INNER JOIN city as ci on c.city_id = ci.id\n" +
-                    "INNER JOIN interview as i on a.interview_id = i.id\n" +
-                    "INNER JOIN technology as t on a.technology_id = t.id\n" +
-                    "");
+            querySb.append("""
+                    SELECT COUNT(*) AS applied, c.source, t.name, c.name, i.interview_result FROM candidate as c
+                    INNER JOIN application as a on a.candidate_id = c.id
+                    INNER JOIN city as ci on c.city_id = ci.id
+                    INNER JOIN interview as i on a.interview_id = i.id
+                    INNER JOIN technology as t on a.technology_id = t.id
+                    """);
         }
-
 
         if (period != null) {
             if (period.length == 1) {
                 querySb.append(" WHERE YEAR(`interview_date`) = '").append(year).append("'");
-                haveDate = true;
+                isUsedWhere = true;
             }
             if (period.length == 2) {
-                if (month.equals("spring")) {
-                    firstDate = "03-01";
-                    lastDate = "05-31";
-                } else if (month.equals("summer")) {
-                    firstDate = "06-01";
-                    lastDate = "08-31";
-                } else if (month.equals("fall") || (month.equals("autumn"))) {
-                    firstDate = "09-01";
-                    lastDate = "11-31";
-                } else {
-                    firstDate = "12-01";
-                    lastDate = "02-29";
+                switch (month) {
+                    case "spring" -> {
+                        firstDate = "03-01";
+                        lastDate = "05-31";
+                    }
+                    case "summer" -> {
+                        firstDate = "06-01";
+                        lastDate = "08-31";
+                    }
+                    case "fall", "autumn" -> {
+                        firstDate = "09-01";
+                        lastDate = "11-31";
+                    }
+                    default -> {
+                        firstDate = "12-01";
+                        lastDate = "02-29";
+                    }
                 }
                 querySb.append(" WHERE YEAR(`interview_date`) = '").append(year).append("' ")
                         .append("AND MONTH(`interview_date`) between ").append(firstDate).append(" and ")
                         .append(lastDate);
-                haveDate = true;
-            }
-        }
-
-        if (argGroup.isTalentFunnel()) {
-            if (haveDate) {
-                querySb.append(" AND `selection_result` = '").append("ACCEPTED").append("' ");
-            } else {
-                querySb.append(" WHERE `selection_result` = '").append("ACCEPTED").append("' ");
+                isUsedWhere = true;
             }
         }
 
         assert allSources != null;
         if (!allSources.equals("none") || sourceName != null) {
             if (sourceName == null) {
-                querySb.append(" GROUP BY 'source");
-                haveSourceGroup = true;
+                querySb.append(" GROUP BY c.source");
+                isUsedGroup = true;
             }
-            if (sourceName != null && haveDate) {
+            if (sourceName != null && isUsedWhere) {
                 querySb.append(" AND c.source = '");
-                querySb.append("" + sourceName + "");
-                haveSourceWhere = true;
-            } else if (sourceName != null && !haveDate) {
+                querySb.append("" + sourceName + "'");
+            } else if (sourceName != null) {
                 querySb.append(" WHERE c.source = '");
-                querySb.append("" + sourceName + "");
-                haveSourceWhere = true;
+                querySb.append("" + sourceName + "'");
+                isUsedWhere = true;
             }
             haveSource = true;
-            querySb.append("' ");
         }
 
         assert allStatuses != null;
         if (!allStatuses.equals("none") || statusName != null) {
-            if (statusName == null && haveSourceGroup) {
-                querySb.append(" AND 'interview_result");
-                haveStatusGroup = true;
-            } else if (statusName == null && !haveSourceGroup) {
-                querySb.append(" GROUP BY 'interview_result");
-                haveStatusGroup = true;
+            if (statusName == null && isUsedGroup) {
+                querySb.append(", i.interview_result");
+            } else if (statusName == null) {
+                querySb.append(" GROUP BY interview_result");
+                isUsedGroup = true;
             }
-            if (statusName != null && ((haveSourceWhere || haveDate) || (haveSourceWhere && haveDate))) {
+            if (statusName != null && isUsedWhere) {
                 querySb.append(" AND i.interview_result = '");
                 querySb.append("" + statusName + "");
-            } else if (statusName != null && !((haveSourceWhere || haveDate) || !(haveSourceWhere && haveDate))) {
+            } else if (statusName != null) {
                 querySb.append(" WHERE i.interview_result = '");
-                querySb.append("" + statusName + "");
+                querySb.append("" + statusName + "'");
             }
             haveResult = true;
-            querySb.append("' ");
         }
 
         if (aggregationName != null) {
             if (aggregationName.equals("technology")) {
-                if (haveSourceGroup || haveStatusGroup || haveSourceGroup && haveStatusGroup) {
-                    querySb.append(" AND '" + aggregationName);
+                if (isUsedGroup) {
+                    querySb.append(", t.name");
                 } else {
-                    querySb.append(" GROUP BY '" + aggregationName);
+                    querySb.append(" GROUP BY t.name");
                 }
             } else {
-                if (haveSourceGroup || haveStatusGroup || haveSourceGroup && haveStatusGroup) {
-                    querySb.append(" AND '" + aggregationName);
+                if (isUsedGroup) {
+                    querySb.append(", c.name");
                 } else {
-                    querySb.append(" GROUP BY '" + aggregationName);
+                    querySb.append(" GROUP BY c.name");
                 }
             }
             haveName = true;
-            querySb.append("' ");
         }
         getDataFromDatabase(querySb, argGroup, haveSource, haveResult, haveName);
     }
 
     public void getDataFromDatabase(StringBuilder querySb, ReportArguments argGroup, boolean haveSource, boolean haveResult,
-                                    boolean haveName) throws SQLException {
-
+                                    boolean haveName) {
         try {
-            Connection connection = ConnectionJbdc.getConnection("litera");
+            Connection connection = ConnectionJbdc.getConnection(StoreDataImpl.schema);
 
             PreparedStatement prepareStatement = connection.prepareStatement(String.valueOf(querySb));
 
             ResultSet resultSet = prepareStatement.executeQuery();
             while (resultSet.next()) {
-                Report reportInfo = new Report();
-                reportInfo.setAppliedCandidatesSum(resultSet.getInt("applied"));
+                ReportModel reportModel = new ReportModel();
+                reportModel.setAppliedCandidates(resultSet.getInt("applied"));
                 if (argGroup.isTalentFunnel()) {
-                    reportInfo.setAcceptedCandidatesSum(resultSet.getInt("accepted"));
+                    reportModel.setAcceptedCandidates(resultSet.getInt("accepted"));
                 }
-//                if (haveSource) {
-//                    reportInfo.setSource(Sources.valueOf(resultSet.getString("source")));
-//                }
-//                if (haveResult) {
-//                    reportInfo.setInterviewResult(InterviewResults.valueOf(resultSet.getString("interview_result")));
-//                }
-//                if (haveName) {
-//                    reportInfo.setAggregation(resultSet.getString("name"));
-//                }
-                reportController.addReportInfo(reportInfo);
+                if (haveSource) {
+                    reportModel.setSource(String.valueOf(resultSet.getString("source")));
+                }
+                if (haveResult) {
+                    reportModel.setInterviewResult(String.valueOf(resultSet.getString("interview_result")));
+                }
+                if (haveName) {
+                    reportModel.setAggregation(resultSet.getString("name"));
+                }
+                reportModels.add(reportModel);
             }
+            Print print = new Print();
+            print.print(reportModels);
         } catch (SQLException | IOException sqlException) {
             sqlException.printStackTrace();
         }

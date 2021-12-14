@@ -17,6 +17,7 @@ public class StoreDataImpl implements StoreData {
 
     private ParseCsvImpl parseCsv = new ParseCsvImpl();
     private ApplicationModel applications = parseCsv.parseCsv();
+    public static String schema = "litera";
 
     public void storeAllData() throws SQLException, IOException {
         Seeder seeder = new Seeder();
@@ -33,7 +34,7 @@ public class StoreDataImpl implements StoreData {
     public void storeCity(ApplicationModel applications, int i) throws SQLException {
         PreparedStatement preparedStatementForCity = null;
         try {
-            Connection connection = ConnectionJbdc.getConnection("litera");
+            Connection connection = ConnectionJbdc.getConnection(schema);
 
             String queryForCity = "INSERT INTO city(name)\n" +
                     "VALUES (?)";
@@ -60,7 +61,7 @@ public class StoreDataImpl implements StoreData {
     public void storeCandidate(ApplicationModel applications, int i) throws SQLException {
         PreparedStatement preparedStatementForCandidate = null;
         try {
-            Connection connection = ConnectionJbdc.getConnection("litera");
+            Connection connection = ConnectionJbdc.getConnection(schema);
 
             String queryForCandidate = "INSERT INTO candidate(name, surname, city_id, email, phone, source)\n" +
                     "VALUES (?, ?, ?, ?, ?, ?)";
@@ -94,7 +95,7 @@ public class StoreDataImpl implements StoreData {
     public void storeTechnology(ApplicationModel applications, int i) throws SQLException {
         PreparedStatement preparedStatementForTechnology = null;
         try {
-            Connection connection = ConnectionJbdc.getConnection("litera");
+            Connection connection = ConnectionJbdc.getConnection(schema);
 
             String queryForTechnology = "INSERT INTO technology(name)\n" +
                     "VALUES (?)";
@@ -121,7 +122,7 @@ public class StoreDataImpl implements StoreData {
     public void storeInterview(ApplicationModel applications, int i) throws SQLException {
         PreparedStatement preparedStatementForInterview = null;
         try {
-            Connection connection = ConnectionJbdc.getConnection("litera");
+            Connection connection = ConnectionJbdc.getConnection(schema);
 
             String queryForInterview = "INSERT INTO interview(interview_date, interview_result)\n" +
                     "VALUES (?, ?)";
@@ -152,7 +153,7 @@ public class StoreDataImpl implements StoreData {
     public void storeApplication(ApplicationModel applications, int i) throws SQLException {
         PreparedStatement preparedStatementForApplication = null;
         try {
-            Connection connection = ConnectionJbdc.getConnection("litera");
+            Connection connection = ConnectionJbdc.getConnection(schema);
 
             String queryForApplication = "INSERT INTO application(`pre-selection_status`, `selection_result`, candidate_id, technology_id, interview_id)\n" +
                     "VALUES (?, ?, ?, ?, ?)";

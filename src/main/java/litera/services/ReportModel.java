@@ -1,25 +1,87 @@
 package services;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class ReportModel {
 
-    private List<Report> reportInfos;
+    private Integer appliedCandidates;
+    private Integer acceptedCandidates;
+    private Double acceptedCandidatesPercent;
+    private String interviewResult;
+    private String source;
+    private String aggregation;
 
     public ReportModel() {
-        this.reportInfos = new ArrayList<>();
     }
 
-    public void addReportInfo(Report reportInfo) {
-        this.reportInfos.add(reportInfo);
+    public Double getAcceptedCandidatesPercent() {
+        return acceptedCandidatesPercent;
     }
 
-    public List<Report> getReportInfos() {
-        return reportInfos;
+    public void setAcceptedCandidatesPercent(Double acceptedCandidatesPercent) {
+        this.acceptedCandidatesPercent = percent();
     }
 
-    public void setReportInfos(List<Report> reportInfos) {
-        this.reportInfos = reportInfos;
+    public String getInterviewResult() {
+        return interviewResult;
+    }
+
+    public void setInterviewResult(String interviewResult) {
+        this.interviewResult = interviewResult;
+    }
+
+    public String getSource() {
+        return source;
+    }
+
+    public void setSource(String source) {
+        this.source = source;
+    }
+
+    //    public Sources getSource() {
+//        return source;
+//    }
+//
+//    public void setSource(Sources source) {
+//        this.source = source;
+//    }
+//
+//    public InterviewResults getInterviewResult() {
+//        return interviewResult;
+//    }
+//
+//    public void setInterviewResult(InterviewResults interviewResult) {
+//        this.interviewResult = interviewResult;
+//    }
+
+    public Integer getAppliedCandidates() {
+        return appliedCandidates;
+    }
+
+    public void setAppliedCandidates(Integer appliedCandidates) {
+        this.appliedCandidates = appliedCandidates;
+    }
+
+    public Integer getAcceptedCandidates() {
+        return acceptedCandidates;
+    }
+
+    public void setAcceptedCandidates(Integer acceptedCandidates) {
+        this.acceptedCandidates = acceptedCandidates;
+
+    }
+
+    public String getAggregation() {
+        return aggregation;
+    }
+
+    public void setAggregation(String aggregation) {
+        this.aggregation = aggregation;
+    }
+
+    private double percent() {
+        if (acceptedCandidates != 0) {
+           return this.acceptedCandidatesPercent = (double) (appliedCandidates / acceptedCandidates);
+        }else {
+           return this.acceptedCandidatesPercent = 0.0;
+        }
     }
 }

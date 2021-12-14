@@ -8,6 +8,7 @@ import entities.enums.PreSelectionStatuses;
 import entities.enums.SelectionResults;
 import entities.enums.Sources;
 import services.ApplicationModel;
+import services.GetProperty;
 
 import java.io.FileReader;
 import java.time.LocalDate;
@@ -26,7 +27,7 @@ public class ParseCsvImpl implements ParseCsv {
 
     public ApplicationModel parseCsv() {
         try {
-            List<Object> beans = new CsvToBeanBuilder<>(new FileReader("src/main/resources/litera-candidates-data.csv"))
+            List<Object> beans = new CsvToBeanBuilder<>(new FileReader(new GetProperty().getFile()))
                     .withType(DomainModel.class)
                     .build()
                     .parse();
