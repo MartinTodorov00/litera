@@ -48,8 +48,9 @@ public class GetProperty {
         } catch (Exception e) {
             System.out.println("Exception: " + e);
         } finally {
-            assert inputStream != null;
-            inputStream.close();
+            if (inputStream != null) {
+                inputStream.close();
+            }
         }
     }
 
@@ -70,8 +71,9 @@ public class GetProperty {
         } catch (Exception e) {
             System.out.println("Exception: " + e);
         } finally {
-            assert inputStream != null;
-            inputStream.close();
+            if (inputStream != null) {
+                inputStream.close();
+            }
         }
     }
 }

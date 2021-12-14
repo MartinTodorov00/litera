@@ -118,39 +118,41 @@ public class ReportLayerImpl implements ReportLayer {
             }
         }
 
-        assert allSources != null;
-        if (!allSources.equals("none") || sourceName != null) {
-            if (sourceName == null) {
-                querySb.append(" GROUP BY c.source");
-                isUsedGroup = true;
+        if (allSources != null) {
+            if (!allSources.equals("none") || sourceName != null) {
+                if (sourceName == null) {
+                    querySb.append(" GROUP BY c.source");
+                    isUsedGroup = true;
+                }
+                if (sourceName != null && isUsedWhere) {
+                    querySb.append(" AND c.source = '");
+                    querySb.append("" + sourceName + "'");
+                } else if (sourceName != null) {
+                    querySb.append(" WHERE c.source = '");
+                    querySb.append("" + sourceName + "'");
+                    isUsedWhere = true;
+                }
+                haveSource = true;
             }
-            if (sourceName != null && isUsedWhere) {
-                querySb.append(" AND c.source = '");
-                querySb.append("" + sourceName + "'");
-            } else if (sourceName != null) {
-                querySb.append(" WHERE c.source = '");
-                querySb.append("" + sourceName + "'");
-                isUsedWhere = true;
-            }
-            haveSource = true;
         }
 
-        assert allStatuses != null;
-        if (!allStatuses.equals("none") || statusName != null) {
-            if (statusName == null && isUsedGroup) {
-                querySb.append(", i.interview_result");
-            } else if (statusName == null) {
-                querySb.append(" GROUP BY interview_result");
-                isUsedGroup = true;
+        if (allStatuses != null) {
+            if (!allStatuses.equals("none") || statusName != null) {
+                if (statusName == null && isUsedGroup) {
+                    querySb.append(", i.interview_result");
+                } else if (statusName == null) {
+                    querySb.append(" GROUP BY interview_result");
+                    isUsedGroup = true;
+                }
+                if (statusName != null && isUsedWhere) {
+                    querySb.append(" AND i.interview_result = '");
+                    querySb.append("" + statusName + "");
+                } else if (statusName != null) {
+                    querySb.append(" WHERE i.interview_result = '");
+                    querySb.append("" + statusName + "'");
+                }
+                haveResult = true;
             }
-            if (statusName != null && isUsedWhere) {
-                querySb.append(" AND i.interview_result = '");
-                querySb.append("" + statusName + "");
-            } else if (statusName != null) {
-                querySb.append(" WHERE i.interview_result = '");
-                querySb.append("" + statusName + "'");
-            }
-            haveResult = true;
         }
 
         if (aggregationName != null) {

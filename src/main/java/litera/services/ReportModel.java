@@ -36,22 +36,6 @@ public class ReportModel {
         this.source = source;
     }
 
-    //    public Sources getSource() {
-//        return source;
-//    }
-//
-//    public void setSource(Sources source) {
-//        this.source = source;
-//    }
-//
-//    public InterviewResults getInterviewResult() {
-//        return interviewResult;
-//    }
-//
-//    public void setInterviewResult(InterviewResults interviewResult) {
-//        this.interviewResult = interviewResult;
-//    }
-
     public Integer getAppliedCandidates() {
         return appliedCandidates;
     }
@@ -66,7 +50,6 @@ public class ReportModel {
 
     public void setAcceptedCandidates(Integer acceptedCandidates) {
         this.acceptedCandidates = acceptedCandidates;
-
     }
 
     public String getAggregation() {

@@ -53,8 +53,9 @@ public class StoreDataImpl implements StoreData {
         } catch (SQLException | IOException sqlException) {
             sqlException.printStackTrace();
         } finally {
-            assert preparedStatementForCity != null;
-            preparedStatementForCity.close();
+            if (preparedStatementForCity != null) {
+                preparedStatementForCity.close();
+            }
         }
     }
 
@@ -87,8 +88,9 @@ public class StoreDataImpl implements StoreData {
         } catch (SQLException | IOException sqlException) {
             sqlException.printStackTrace();
         } finally {
-            assert preparedStatementForCandidate != null;
-            preparedStatementForCandidate.close();
+            if (preparedStatementForCandidate != null) {
+                preparedStatementForCandidate.close();
+            }
         }
     }
 
@@ -114,8 +116,9 @@ public class StoreDataImpl implements StoreData {
         } catch (SQLException | IOException sqlException) {
             sqlException.printStackTrace();
         } finally {
-            assert preparedStatementForTechnology != null;
-            preparedStatementForTechnology.close();
+            if (preparedStatementForTechnology != null) {
+                preparedStatementForTechnology.close();
+            }
         }
     }
 
@@ -145,8 +148,9 @@ public class StoreDataImpl implements StoreData {
         } catch (SQLException | IOException sqlException) {
             sqlException.printStackTrace();
         } finally {
-            assert preparedStatementForInterview != null;
-            preparedStatementForInterview.close();
+            if (preparedStatementForInterview != null) {
+                preparedStatementForInterview.close();
+            }
         }
     }
 
@@ -181,8 +185,9 @@ public class StoreDataImpl implements StoreData {
         } catch (SQLException | IOException sqlException) {
             sqlException.printStackTrace();
         } finally {
-            assert preparedStatementForApplication != null;
-            preparedStatementForApplication.close();
+            if (preparedStatementForApplication != null) {
+                preparedStatementForApplication.close();
+            }
         }
     }
 }
