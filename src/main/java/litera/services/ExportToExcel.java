@@ -2,7 +2,6 @@ package services;
 
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import repositories.ReportLayerImpl;
 
 import java.io.FileOutputStream;
 import java.util.ArrayList;
@@ -12,7 +11,7 @@ public class ExportToExcel {
 
     private static String path = "C:\\Users\\HP\\Desktop\\PrimeHolding intern\\Excel file\\report";
 
-    public void export(List<ReportModel> reportModels) {
+    public void export(List<ReportModel> reportModels, String year, String month, String aggregation) {
         try {
             Workbook workbook = new XSSFWorkbook();
 
@@ -94,15 +93,14 @@ public class ExportToExcel {
                 sheet.autoSizeColumn(i);
             }
 
-            ReportLayerImpl reportLayer = new ReportLayerImpl();
-            if (reportLayer.getYear() != null) {
-                path += "-" + reportLayer.getYear();
-                if (reportLayer.getMonth() != null) {
-                    path += " " + reportLayer.getMonth();
+            if (year != null) {
+                path += "-" + year;
+                if (month != null) {
+                    path += " " + month;
                 }
             }
-            if (reportLayer.getAggregationName() != null) {
-                path += "-" + reportLayer.getAggregationName();
+            if (aggregation != null) {
+                path += "-" + aggregation;
             }
             path += ".xlsx";
             FileOutputStream fileOut = new FileOutputStream(path);

@@ -21,18 +21,6 @@ public class ReportLayerImpl implements ReportLayer {
     private String month;
     private String aggregationName;
 
-    public String getYear() {
-        return year;
-    }
-
-    public String getMonth() {
-        return month;
-    }
-
-    public String getAggregationName() {
-        return aggregationName;
-    }
-
     private final StringBuilder querySb = new StringBuilder();
     private final List<ReportModel> reportModels = new ArrayList<>();
 
@@ -196,12 +184,9 @@ public class ReportLayerImpl implements ReportLayer {
                 }
                 reportModels.add(reportModel);
             }
-            //here
-            ExportToExcel exportToExcel = new ExportToExcel();
-            exportToExcel.export(reportModels);
 
-//            Print print = new Print();
-//            print.print(reportModels);
+            ExportToExcel exportToExcel = new ExportToExcel();
+            exportToExcel.export(reportModels, year, month, aggregationName);
         } catch (SQLException | IOException sqlException) {
             sqlException.printStackTrace();
         }
