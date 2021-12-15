@@ -2,7 +2,7 @@ package repositories;
 
 import CommandLineInterface.ReportArguments;
 import services.ConnectionJbdc;
-import services.Print;
+import services.ExportToExcel;
 import services.ReportModel;
 
 import java.io.IOException;
@@ -17,19 +17,35 @@ public class ReportLayerImpl implements ReportLayer {
 
     private boolean isUsedWhere;
     private boolean haveTalentFunnel;
+    private String year;
+    private String month;
+    private String aggregationName;
+
+    public String getYear() {
+        return year;
+    }
+
+    public String getMonth() {
+        return month;
+    }
+
+    public String getAggregationName() {
+        return aggregationName;
+    }
 
     private final StringBuilder querySb = new StringBuilder();
     private final List<ReportModel> reportModels = new ArrayList<>();
 
+
     public void check(ReportArguments argGroup) throws SQLException {
 
-        String year = null;
-        String month = null;
+        year = null;
+        month = null;
         String allSources = null;
         String sourceName = null;
         String allStatuses = null;
         String statusName = null;
-        String aggregationName = null;
+        aggregationName = null;
         isUsedWhere = false;
         haveTalentFunnel = false;
         boolean isUsedGroup = false;
@@ -180,8 +196,12 @@ public class ReportLayerImpl implements ReportLayer {
                 }
                 reportModels.add(reportModel);
             }
-            Print print = new Print();
-            print.print(reportModels);
+            //here
+            ExportToExcel exportToExcel = new ExportToExcel();
+            exportToExcel.export(reportModels);
+
+//            Print print = new Print();
+//            print.print(reportModels);
         } catch (SQLException | IOException sqlException) {
             sqlException.printStackTrace();
         }
