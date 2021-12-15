@@ -10,7 +10,7 @@ import java.sql.SQLException;
 
 @Command(subcommands = {Process.class, Config.class, Report.class}, mixinStandardHelpOptions = true)
 public class LiteraApplication {
-    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) {
         new CommandLine(new LiteraApplication()).execute(args);
     }
 }

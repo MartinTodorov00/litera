@@ -15,6 +15,9 @@ import java.util.List;
 
 public class ReportLayerImpl implements ReportLayer {
 
+    private boolean isUsedWhere;
+    private boolean haveTalentFunnel;
+
     private final StringBuilder querySb = new StringBuilder();
     private final List<ReportModel> reportModels = new ArrayList<>();
 
@@ -22,14 +25,13 @@ public class ReportLayerImpl implements ReportLayer {
 
         String year = null;
         String month = null;
-        String firstDate;
-        String lastDate;
         String allSources = null;
         String sourceName = null;
         String allStatuses = null;
         String statusName = null;
         String aggregationName = null;
-        boolean isUsedWhere = false;
+        isUsedWhere = false;
+        haveTalentFunnel = false;
         boolean isUsedGroup = false;
         boolean haveSource = false;
         boolean haveResult = false;
@@ -67,11 +69,19 @@ public class ReportLayerImpl implements ReportLayer {
         }
 
         if (argGroup.isTalentFunnel()) {
+            haveTalentFunnel = true;
             querySb.append("""
-                    SELECT COUNT(*) AS accepted, c.source, t.name, c.name, i.interview_result, (SELECT COUNT(*) as applied
+                    SELECT COUNT(*) AS applied, c.source, t.name, c.name, i.interview_result, (SELECT COUNT(*) as applied
                     FROM candidate as c
                     INNER JOIN application as a on a.candidate_id = c.id
-                    WHERE a.selection_result = "ACCEPTED") AS applied FROM candidate as c
+                    INNER JOIN interview as i on a.interview_id = i.id
+                    WHERE a.selection_result = "ACCEPTED"
+                    """);
+
+            dateCheck(period, year, month);
+
+            querySb.append("""
+                    ) AS accepted FROM candidate as c
                     INNER JOIN application as a on a.candidate_id = c.id
                     INNER JOIN city as ci on c.city_id = ci.id
                     INNER JOIN interview as i on a.interview_id = i.id
@@ -87,36 +97,7 @@ public class ReportLayerImpl implements ReportLayer {
                     """);
         }
 
-        if (period != null) {
-            if (period.length == 1) {
-                querySb.append(" WHERE YEAR(`interview_date`) = '").append(year).append("'");
-                isUsedWhere = true;
-            }
-            if (period.length == 2) {
-                switch (month) {
-                    case "spring" -> {
-                        firstDate = "03-01";
-                        lastDate = "05-31";
-                    }
-                    case "summer" -> {
-                        firstDate = "06-01";
-                        lastDate = "08-31";
-                    }
-                    case "fall", "autumn" -> {
-                        firstDate = "09-01";
-                        lastDate = "11-31";
-                    }
-                    default -> {
-                        firstDate = "12-01";
-                        lastDate = "02-29";
-                    }
-                }
-                querySb.append(" WHERE YEAR(`interview_date`) = '").append(year).append("' ")
-                        .append("AND MONTH(`interview_date`) between ").append(firstDate).append(" and ")
-                        .append(lastDate);
-                isUsedWhere = true;
-            }
-        }
+        dateCheck(period, year, month);
 
         if (allSources != null) {
             if (!allSources.equals("none") || sourceName != null) {
@@ -203,6 +184,53 @@ public class ReportLayerImpl implements ReportLayer {
             print.print(reportModels);
         } catch (SQLException | IOException sqlException) {
             sqlException.printStackTrace();
+        }
+    }
+
+    private void dateCheck(String[] period, String year, String month) {
+        if (period != null) {
+            if (period.length == 1) {
+                if (haveTalentFunnel) {
+                    querySb.append(" AND YEAR(`interview_date`) = '").append(year).append("'");
+                    haveTalentFunnel = false;
+                } else {
+                    querySb.append(" WHERE YEAR(`interview_date`) = '").append(year).append("'");
+                    isUsedWhere = true;
+                }
+            }
+            if (period.length == 2) {
+                String firstDate;
+                String lastDate;
+                switch (month) {
+                    case "spring" -> {
+                        firstDate = "03-01";
+                        lastDate = "05-31";
+                    }
+                    case "summer" -> {
+                        firstDate = "06-01";
+                        lastDate = "08-31";
+                    }
+                    case "fall", "autumn" -> {
+                        firstDate = "09-01";
+                        lastDate = "11-31";
+                    }
+                    default -> {
+                        firstDate = "12-01";
+                        lastDate = "02-29";
+                    }
+                }
+                if (haveTalentFunnel) {
+                    querySb.append(" AND YEAR(`interview_date`) = '").append(year).append("' ")
+                            .append("AND MONTH(`interview_date`) between ").append(firstDate).append(" and ")
+                            .append(lastDate);
+                    haveTalentFunnel = false;
+                } else {
+                    querySb.append(" WHERE YEAR(`interview_date`) = '").append(year).append("' ")
+                            .append("AND MONTH(`interview_date`) between ").append(firstDate).append(" and ")
+                            .append(lastDate);
+                    isUsedWhere = true;
+                }
+            }
         }
     }
 }

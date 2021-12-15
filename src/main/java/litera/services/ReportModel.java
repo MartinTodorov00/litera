@@ -50,6 +50,7 @@ public class ReportModel {
 
     public void setAcceptedCandidates(Integer acceptedCandidates) {
         this.acceptedCandidates = acceptedCandidates;
+        percent();
     }
 
     public String getAggregation() {
